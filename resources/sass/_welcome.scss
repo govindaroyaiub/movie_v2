@@ -1,0 +1,85 @@
+.welcome-page {
+
+  .header {
+    background-color: #20232a;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .showtimes {
+    overflow-y: auto;
+    position: relative;
+    height: 85vh;
+    padding-top: 8rem;
+  }
+
+  #movieShowtime {
+    background-color: #fff;
+    color: #161617;
+
+    .showtime-btn {
+      background-color: #282c34;
+      color: #fff;
+      border: 0;
+      padding: 0.6rem 1rem;
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+
+      &:focus {
+        text-decoration: none;
+        outline: none !important;
+      }
+    }
+
+  }
+
+  .showtime-content {
+    position: relative;
+    overflow-y: auto;
+    height: 85vh;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+      li {
+        text-transform: uppercase;
+        border-bottom: 1px solid #2f2f2f;
+        background-color: #030303;
+        color: #fff;
+        padding: 0.6rem 1rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        
+        span {
+          color: #464649;
+          font-size: 0.9rem;
+          margin-top: 0.4rem;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+.footer-area {
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+
