@@ -41,7 +41,7 @@ class HomeController extends Controller
         $this->validate($request, array(
         'file'      => 'required'
         ));
-        if($request->has('client_id'))
+        if($request->client_id != NULL)
         {
             $user_id = $request->client_id;
         }

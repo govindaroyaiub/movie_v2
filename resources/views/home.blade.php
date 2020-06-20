@@ -14,7 +14,7 @@
                     {{ csrf_field() }}
                     @if(Auth::user()->is_admin == 1)
                     <div class="form-group">
-                        <select class="form-control select2" id="client_id" name="client_id">
+                        <select class="form-control select2" id="client_id" name="client_id" required>
                             <option value="">Select Client</option>
                             @foreach($user_list as $row)
                             <option value="{{$row->id}}">{{$row->name}}</option>

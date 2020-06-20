@@ -14,19 +14,19 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}" target="_blank">
                 Admin
-            </a>
-            <a class="navbar" href="{{ url('/home') }}">
+                </a>
+                <a class="navbar" href="{{ url('/home') }}" @if(request()->is('home')) style="background-color: #badefb;" @endif>
                 Home
-            </a>
-            @guest
-
-            @else
-                @if(Auth::user()->is_admin == 1)
-                    <a class="navbar" href="{{ url('/userlist') }}">
-                        Users
+                </a>
+                @guest
+                    
+                @else
+                    @if(Auth::user()->is_admin == 1)
+                    <a class="navbar" href="{{ url('/userlist') }}" @if(request()->is('userlist') || request()->is('userlist/*')) style="background-color: #badefb;" @endif>
+                    Users
                     </a>
-                @endif
-                <a class="navbar" href="{{ url('/movielist') }}">
+                    @endif
+                    <a class="navbar" href="{{ url('/movielist') }}" @if(request()->is('movielist') || request()->is('movielist/*')) style="background-color: #badefb;" @endif>
                     Movies
                 </a>
             @endguest
