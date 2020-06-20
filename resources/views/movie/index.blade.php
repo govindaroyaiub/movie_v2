@@ -96,22 +96,22 @@
             <div class="tab-content pt-3">
                 <div id="cookies" class="container tab-pane">
                     <p>
-                        {{ $movie_details->cookies }}
+                        {{ $movie_details->cookies_nl }}
                     </p>
                 </div>
                 <div id="Gebruiksvoorwaarden" class="container tab-pane fade">
                     <p>
-                        {{ $movie_details->terms_of_use }}
+                        {{ $movie_details->terms_of_use_nl }}
                     </p>
                 </div>
                 <div id="privacy-policy" class="container tab-pane fade">
                     <p>
-                        {{ $movie_details->privacy_policy }}
+                        {{ $movie_details->privacy_policy_nl }}
                     </p>
                 </div>
                 <div id="credits" class="container tab-pane fade">
                     <p>
-                        {{ $movie_details->credits }}
+                        {{ $movie_details->credits_nl }}
                     </p>
                 </div>
             </div>
