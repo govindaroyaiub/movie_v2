@@ -12,7 +12,7 @@ window.$ = window.jQuery = require('jquery');
 window.axios = require('axios');
 
 
-$( document ).ready(function() {
+$(document).ready(function () {
     setTimeout(function () {
         $('.trailer-video').trigger('click');
     }, 10);
@@ -101,7 +101,17 @@ var stores = {
     features: [],
 }
 
-axios.get('http://movie_v2.test/api/shows')
+let endpint = `${location.href}/api/shows`;
+
+if (location.pathname === '/en') {
+    const enUrl = `${location.href}api/shows`;
+    endpint = enUrl.replace(/\/en/g, '/');
+} else {
+    endpint = `${location.href}api/shows`;
+}
+
+
+axios.get(endpint)
     .then(res => showtime.push(...res.data))
     .then(() => {
         for (i = 0; i < showtime.length; i++) {
