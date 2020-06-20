@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter');
+
+:root {
+    --primary-light: #74acc4;
+    --primary-dark: #529dbc;
+    --extend: #353b48;
+    --secondary-light: #282c34;
+    --secondary-dark: #20232a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    display: inline-block;
+    transition: all .2s;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+.coming-soon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.movie-content {
+    min-height: 80vh;
+}
+
+.hastag {
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.flags img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    margin: 0 auto;
+    display: none;
+    cursor: pointer;
+}
+
+.movie-header {
+    background: var(--secondary-light);
+}
+
+.movie-header h1 {
+    font-size: 1.2rem;
+}
+
+.flag {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+}
+
+.flag img {
+    width: 32px;
+    cursor: pointer;
+}
+
+.menu-toggler,
+.closebtn {
+    display: none;
+}
+
+.movie-menu {
+    background: var(--extend);
+    padding: 1rem 0;
+}
+
+.movie-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-menu a {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.movie-menu a:hover {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.movie-content {
+    background: var(--secondary-dark);
+    padding: 1rem 0;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form input {
+    border: solid 1px #fff;
+    width: 90%;
+    padding: .4rem 1rem;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+    transition: all .2s;
+}
+
+.search-form input:focus {
+    outline: none;
+}
+
+.search-form button {
+    background: var(--primary-dark);
+    border: solid 1px var(--primary-dark);
+    color: #fff;
+    width: 10%;
+    padding: .4rem 1rem;
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+    transition: all .2s;
+}
+
+.search-meta p {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.synopsis-meta p:not(:last-child) {
+    margin-bottom: 0.4rem;
+}
+
+.synopsis-meta span {
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.synopsis h3 {
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+
+.movie-footer {
+    background: var(--secondary-light);
+    padding: 1rem 0;
+}
+
+.movie-footer .nav-tabs {
+    border-bottom: none !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-footer .nav-tabs li {
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.movie-footer .nav-tabs a {
+    color: #6a7179;
+    cursor: pointer;
+}
+
+.movie-footer .nav-tabs a.active,
+.movie-footer .nav-tabs a:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.yt-iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.v-cities {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.v-cities li {
+    border-radius: 2px;
+    margin: 5px 10px;
+    background: var(--secondary-light);
+    border: solid 1px var(--primary-light);
+    padding: .3rem 0.8rem;
+    text-align: center;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.v-cities li:hover {
+    background: var(--primary-light);
+}
+
+/* MAP */
+.map-wrapper {
+    /*position: relative;*/
+}
+
+.mapmarker {
+    position: absolute;
+    top: -227px;
+    right: 0;
+    background: rgba(255, 255, 255, .9);
+    border-radius: .2rem;
+    color: var(--primary-light);
+    border: 0;
+    padding: 0px 12px;
+    font-size: 1.5rem;
+    z-index: 41;
+}
+
+.mapmarker:focus {
+    outline: none;
+}
+
+.map {
+    position: absolute;
+    width: 100%;
+    min-height: 80vh;
+    height: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+}
+
+.accordion-title-wrapper {
+    display: block;
+}
+
+.accordion-title-wrapper:hover {
+    text-decoration: none;
+}
+
+.listings {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.listings .item {
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.listings .item:last-child {
+    border-bottom: none;
+}
+
+.listings .item .title {
+    display: block;
+    color: var(--primary-light);
+    font-weight: 700;
+}
+
+.listings .item .title small {
+    font-weight: 400;
+}
+
+.listings .item.active .title,
+.listings .item .title:hover {
+    color: var(--primary-dark);
+}
+
+.listings .item.active {
+    background: var(--secondary-light);
+    color: #fff;
+}
+
+.movie-details {
+    position: relative;
+}
+
+.marker {
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    background-image: url('../images/marker.png');
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.mapboxgl-popup {
+    padding-bottom: 50px;
+}
+
+.mapboxgl-popup-close-button {
+    display: none;
+}
+
+.mapboxgl-popup-content {
+    padding: 0;
+    width: 180px;
+}
+
+.mapboxgl-popup-content-wrapper {
+    padding: 1%;
+}
+
+.mapboxgl-popup-content h3 {
+    background: var(--primary-dark);
+    color: #fff;
+    display: block;
+    padding: 10px;
+    border-radius: 3px 3px 0 0;
+    margin: -15px 0 0 0;
+    font-size: 1.2rem !important;
+}
+
+.mapboxgl-popup-content h4 {
+    margin: 0;
+    display: block;
+    padding: 10px 10px 10px 10px;
+    font-weight: 400;
+    font-size: 1rem;
+    background: var(--secondary-light);
+    color: #fff;
+}
+
+.mapboxgl-popup-content div {
+    padding: 10px;
+}
+
+.mapboxgl-container .leaflet-marker-icon {
+    cursor: pointer;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+    margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+    border-bottom-color: var(--primary-dark);
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: var(--secondary-light);
+}
+
+.main-accordion {
+    max-height: 40vh;
+    overflow-x: auto;
+}
+
+.city-accordion {
+    max-height: 40vh;
+    overflow-x: auto;
+}
+
+.city-accordion-js h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.city-map-js {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.city-map-js li {
+    border-radius: 2px;
+    margin: 0.5rem;
+    background: var(--secondary-light);
+    border: solid 1px var(--primary-light);
+    padding: .3rem 0.8rem;
+    text-align: center;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.city-map-js li:hover {
+    background: var(--primary-light);
+}
+
+.city-link {
+    color: #fff;
+}
+
+.city-link:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.city-accordion-js {
+    background: var(--secondary-light);
+    color: #fff;
+    border-radius: 0.2rem;
+    margin: 1rem;
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.city-accordion-js .title {
+    padding: 0.8rem;
+}
+
+.accordion-expand-js {
+    background: var(--primary-light);
+    padding: 0.8rem;
+}
+
+.city-accordion-js .title:hover,
+.city-accordion-js:hover {
+    text-decoration: none;
+}
+
+.city-accordion-js i {
+    color: var(--primary-light);
+}
+
+.get-ticket-btn {
+    background-color: var(--primary-light);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+    margin-top: 8px;
+    text-transform: uppercase;
+    padding: 0.6rem 2rem;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+}
+
+.get-ticket-btn:hover {
+    text-decoration: none;
+    background-color: var(--primary-dark);
+    color: #fff;
+}
+
+.footer-social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.footer-social li:nth-of-type(1) a {
+    color: #3b5998;
+}
+
+.footer-social li:nth-of-type(2) a {
+    color: #1da1f2;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 2rem;
+}

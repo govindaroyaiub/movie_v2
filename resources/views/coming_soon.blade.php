@@ -2,19 +2,17 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Coming Soon</title>
-	<link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="{{ mix('/css/main.css') }}"/>
 </head>
 <body>
-	<section class="coming-soon">
-		<div class="container">
-				<h3>Coming Soon..</h1>
-				<h4>Please have patience</h2>
-		</div>
-	</section>
+<section class="coming-soon">
+    <h1>We're Coming soon</h1>
+    <p>please have patients.</p>
+</section>
 </body>
 
 </html>
