@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function()
   Route::post('/userlist/edit/{id}', 'AdminController@edit_user_post');
 
   Route::get('/movielist', 'AdminController@movielist');
+  Route::get('/movielist/edit/{id}', 'AdminController@movie_edit');
+  Route::post('/movielist/edit/{id}', 'AdminController@movie_edit_post');
   Route::get('/movielist/delete/{id}', 'AdminController@movie_delete');
   
 });

@@ -87,7 +87,16 @@ class AdminController extends Controller
 
     public function movielist()
     {
-        $movie_list = Movie::where('movie_details.is_delete', '0')->get();
+        $movie_list = Movie::join('users', 'users.id', 'movie_details.uploaded_by')
+                            ->select(
+                                'movie_details.id',
+                                'users.name',
+                                'users.is_admin',
+                                'movie_details.movie_title',
+                                'movie_details.base_url'
+                            )
+                            ->where('movie_details.is_delete', '0')
+                            ->get();
 
         return view('movielist', compact('movie_list'));
     }
@@ -97,5 +106,51 @@ class AdminController extends Controller
         Movie::where('id', $id)->update(['is_delete' => '1']);
         return redirect('/movielist')->with('info', 'Movie has been deleted!');
     }
+
+    public function movie_edit($id)
+    {
+        $movie_details = Movie::where('id', $id)->first();
+        return view('edit-movie', compact('movie_details', 'id'));
+    }
     
+    public function movie_edit_post(Request $request, $id)
+    {
+        $movie_details = [
+            'movie_title' => $movie_title,
+            'movie_description_short' => $movie_description_short,
+            'movie_description_long' => $movie_description_long,
+            'buy_tickets' => $buy_tickets_text,
+            'movie_description_short_nl' => $movie_description_short_nl,
+            'movie_description_long_nl' => $movie_description_long_nl,
+            'buy_tickets_nl' => $buy_tickets_text_nl,
+            'cinema_date' => $cinema_date,
+            'director' => $director,
+            'producer' => $producer,
+            'writer' => $writer,
+            'actors' => $actors,
+            'youtube_url' => $youtube_url,
+            'image1' => $image1,
+            'image2' => $image2,
+            'image3' => $image3,
+            'duration' => $duration,
+            'ratings' => $rating,
+            'base_url' => $get_base_url,
+            'ticket_url' => $get_ticket_url,
+            'fb_link' => $fb_link,
+            'twitter_link' => $twitter_link,
+            'hashtag' => $hashtag,
+            'cookies' => $cookies,
+            'cookies_nl' => $cookies_nl,
+            'terms_of_use' => $terms_of_use,
+            'terms_of_use_nl' => $terms_of_use_nl,
+            'privacy_policy' => $privacy_policy,
+            'privacy_policy_nl' => $privacy_policy_nl,
+            'credits' => $credits,
+            'credits_nl' => $credits_nl,
+            'fb_pixel' => $fb_pixel,
+            'google_pixel' => $google_pixel,
+            'is_delete' => '0',
+            'uploaded_by' => $user_id
+        ];
+    }
 }
