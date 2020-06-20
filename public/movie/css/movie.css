@@ -35,6 +35,10 @@ img {
     height: 100vh;
 }
 
+nav ul a {
+    cursor: pointer;
+}
+
 .movie-content {
     min-height: 80vh;
 }
