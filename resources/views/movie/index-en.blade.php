@@ -81,7 +81,7 @@
 
                         </div>
 
-                        <div class="synopsis">
+                        <div class="synopsis desk-sy">
                             <h3 class="text-center mb-2 my-3">
                                 {{ $movie_details->movie_description_short }}
                             </h3>
