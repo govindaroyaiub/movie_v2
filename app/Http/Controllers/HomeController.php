@@ -74,7 +74,7 @@ class HomeController extends Controller
             $title = new \Imdb\Title(7374926);
             $rating = $title->rating();
 
-            $app_url = 'https://movie.planetnine.com/';
+            $app_url = 'http://bacarau-defilm.nl/';
             $movie_details = Movie::where('base_url', '=', $app_url)->first();
 
             if($worksheet3)
@@ -204,14 +204,15 @@ class HomeController extends Controller
                                                 'google_pixel',
                                                 'uploaded_by')
                                                 ->where('base_url', '=', $app_url)
-                                                ->first()
-                                                ->toArray();
+                                                ->first();
                     
-                    $check_movie_result = array_diff($existing_movie_details, $full_movie_details[0]);
-                    
-                    if($check_movie_result != NULL)
+                    if($existing_movie_details != NULL)
                     {
                         Movie::where('base_url', '=', $app_url)->update($full_movie_details[0]);
+                    }
+                    else
+                    {
+                        Movie::insert($full_movie_details);
                     }
                 }
             }

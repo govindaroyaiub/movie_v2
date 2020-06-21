@@ -14,7 +14,7 @@ class DataController extends Controller
         $title = new \Imdb\Title(7374926);
         $rating = $title->rating();
 
-        $app_url = 'https://movie.planetnine.com/';
+        $app_url = 'http://bacarau-defilm.nl/';
         $movie_details = Movie::where('base_url', '=', $app_url)->first();
         $current_date = date('Y-m-d');
         if ($movie_details == NULL) {
@@ -56,7 +56,7 @@ class DataController extends Controller
         $title = new \Imdb\Title(7374926);
         $rating = $title->rating();
 
-        $app_url = 'https://movie.planetnine.com/';
+        $app_url = 'http://bacarau-defilm.nl/';
         $movie_details = Movie::where('base_url', '=', $app_url)->first();
         $current_date = date('Y-m-d');
         if ($movie_details == NULL) {
@@ -94,7 +94,7 @@ class DataController extends Controller
 
     public function showsApi()
     {
-        $app_url = 'https://movie.planetnine.com/';
+        $app_url = 'http://bacarau-defilm.nl/';
         $movie_details = Movie::where('base_url', '=', $app_url)->first();
         $current_date = date('Y-m-d');
         $showtime = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
@@ -131,7 +131,7 @@ class DataController extends Controller
         $title = new \Imdb\Title(7374926);
         $rating = $title->rating();
 
-        $app_url = 'https://movie.planetnine.com/';
+        $app_url = 'http://bacarau-defilm.nl/';
         $movie_details = Movie::where('base_url', '=', $app_url)->first();
         $current_date = date('Y-m-d');
 
