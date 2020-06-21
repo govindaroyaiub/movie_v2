@@ -131,11 +131,12 @@
                 <div class="col-md-6">
                     <div class="synopsis">
                         <div class="synopsis-meta mt-2">
-                            <p><span>Directed by:</span> {{ $movie_details->director }}</p>
-                            <p><span>Written by:</span> {{ $movie_details->writer }}</p>
-                            <p><span>Produced by:</span> {{ $movie_details->producer }}</p>
-                            <p><span>Casts:</span> {{ $movie_details->actors }}</p>
-                            <p><span>Duration:</span> {{ $movie_details->duration }}</p>
+                            <p><span>Regisseur:</span> {{ $movie_details->director }}</p>
+                            <p><span>Schrijver:</span> {{ $movie_details->writer }}</p>
+                            <p><span>Producent:</span> {{ $movie_details->producer }}</p>
+                            <p><span>Acteurs:</span> {{ $movie_details->actors }}</p>
+                            <p><span>Speeltijd:</span> {{ $movie_details->duration }}</p>
+                            <p><span>Waardering:</span> {{ $rating }}</p>
                         </div>
                     </div>
                 </div>
