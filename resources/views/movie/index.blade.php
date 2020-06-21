@@ -189,7 +189,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <ul class="footer-social">
-                        <li><a target="_blank" href="{{ $movie_details->fb_link }}">
+                        <li class="mr-2"><a target="_blank" href="{{ $movie_details->fb_link }}">
                                 <img width="35" src="{{ asset('images/facebook.svg') }}" alt="">
                             </a>
                         <li><a target="_blank" href="{{ $movie_details->twitter_link }}">
