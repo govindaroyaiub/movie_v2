@@ -153,10 +153,8 @@
     }
 
     .map {
+        display: none;
         top: -343px;
-    }
-
-    .map {
         min-height: auto;
         height: 45vh;
     }

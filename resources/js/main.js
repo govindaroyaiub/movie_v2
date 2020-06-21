@@ -73,7 +73,7 @@ if (nl || en) {
 const mapDiv = document.querySelector('.map');
 const mapmarker = document.querySelector('.mapmarker');
 
-mapmarker.addEventListener('click', () => mapDiv.classList.toggle('d-none'));
+mapmarker.addEventListener('click', () => mapDiv.classList.toggle('d-block'));
 
 // mapbox
 if (!('remove' in Element.prototype)) {
