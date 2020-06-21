@@ -34,7 +34,8 @@
                     <a href="javascript:void(0)" class="closebtn">&times;</a>
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Get Tickets</a></li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Get
+                                    Tickets</a></li>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a>
                             </li>
@@ -71,14 +72,13 @@
                             <button class="search-button" type="submit">&times;</button>
                         </form>
 
-                        <div class="search-meta text-center my-2">
-                            <p>ENTER YOUR LOCATION ABOVE OR SELECT YOUR THEATER BELOW</p>
-                            <p>MORE SHOWTIMES FOUND IN THE CITIES BELOW</p>
-
-                            <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
-                            <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
-
-                            <ul class="city-map-js my-3"></ul>
+                        <div class="synopsis">
+                            <h3 class="text-center mb-2 my-3">
+                                {{ $movie_details->movie_description_short }}
+                            </h3>
+                            <p>
+                                {{ $movie_details->movie_description_long }}
+                            </p>
                         </div>
 
                         <p class="text-center my-2">WATCH THE TRAILER</p>
@@ -91,6 +91,17 @@
                                     allowfullscreen>
                             </iframe>
                         </div>
+
+                        <div class="search-meta text-center my-2">
+                            <p>ENTER YOUR LOCATION ABOVE OR SELECT YOUR THEATER BELOW</p>
+                            <p>MORE SHOWTIMES FOUND IN THE CITIES BELOW</p>
+
+                            <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
+                            <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
+
+                            <ul class="city-map-js my-3"></ul>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 ">

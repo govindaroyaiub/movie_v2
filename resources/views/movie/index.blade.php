@@ -8,10 +8,24 @@
     <link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css'/>
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    <style>
+        .panel-heading  a:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\e114";
+            float: right;
+            transition: all 0.5s;
+        }
+        .panel-heading.active a:before {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 <body>
 
 <a class="trailer-video d-none" href="{{ $youtube_url }}?autoplay=1&mute=1"></a>
+
 
 <section id="root" class="mvoie-body">
     <header class="movie-header position-relative text-white py-3">
@@ -67,10 +81,30 @@
                     <div class="showtimes">
                         <form class="search-form">
                             <input class="search-input map-search" type="text" name="search"
-                                   placeholder="Search.."
+                                   placeholder="Zoek.."
                                    autocomplete="off">
                             <button class="search-button" type="submit">&times;</button>
                         </form>
+
+                        <div class="synopsis">
+                            <h3 class="text-center mb-2 my-3">
+                                {{ $movie_details->movie_description_short_nl }}
+                            </h3>
+                            <p>
+                                {{ $movie_details->movie_description_long_nl }}
+                            </p>
+                        </div>
+
+                        <p class="text-center my-3">BEKIJK DE TRAILER</p>
+
+                        <div class="youtube-trailer">
+                            <iframe class="yt-iframe" src="{{ $youtube_url }}"
+                                    frameborder="0"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
 
                         <div class="search-meta text-center my-2">
                             <p>KIES UW STAD OF LOCATIE</p>
@@ -82,16 +116,6 @@
                             <ul class="city-map-js my-3"></ul>
                         </div>
 
-                        <p class="text-center my-2">BEKIJK DE TRAILER</p>
-
-                        <div class="youtube-trailer">
-                            <iframe class="yt-iframe" src="{{ $youtube_url }}"
-                                    frameborder="0"
-                                    loading="lazy"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 ">

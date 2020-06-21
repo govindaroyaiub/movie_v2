@@ -196,7 +196,7 @@
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     .yt-iframe {
-        width: 400px;
-        height: 222px;
+        width: 450px;
+        height: 258px;
     }
 }

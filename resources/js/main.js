@@ -202,9 +202,12 @@ function buildLocationList(data) {
                             <div id="heading${m.id}">
                               <div data-toggle="collapse" data-target="#collapse${m.id}" aria-expanded="true" aria-controls="collapse${m.id}">
 
-                                  <div class="d-flex">
-                                    <i class="fas fa-film fa-3x"></i>
-                                    <h3 class="ml-3">${m.name}</h3>
+                                  <div class="d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <i class="fas fa-film fa-3x"></i>
+                                        <h3 class="ml-3">${m.name}</h3>
+                                    </div>
+                                    <span class="d-inline-block arrow-indicator"><i class="fas fa-chevron-down"></i></span>
                                   </div>
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
@@ -217,7 +220,7 @@ function buildLocationList(data) {
                           <div id="collapse${m.id}" class="collapse" aria-labelledby="heading${m.id}" data-parent="#mainAccordionId">
                             <div class="accordion-expand-js d-flex flex-column align-items-start mt-2">
                               <h4 class="text-white">${m.movie_title}</h4>
-                              <a class="get-ticket-btn" href="http://${m.url}" target="_blank"><i class="fab fa-ticket"></i> ${location.pathname === '/' ? 'Koop Tickets' : 'Get Tickets'}</a>
+                              <a class="get-ticket-btn" href="http://${m.url}" target="_blank"><i class="fab fa-ticket"></i> ${location.pathname === '/' ? 'Bekijk Bioscooppagina' : 'Go to Cinema page'}</a>
                             </div>
                           </div>
                         </div>
@@ -291,9 +294,12 @@ function buildLocationList(data) {
                             <div id="heading-${m.id}">
                               <div data-toggle="collapse" data-target="#collapse-${m.id}" aria-expanded="true" aria-controls="collapse-${m.id}">
 
-                                  <div class="d-flex">
-                                    <i class="fas fa-film fa-3x"></i>
-                                    <h3 class="ml-3">${m.name}</h3>
+                                 <div class="d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <i class="fas fa-film fa-3x"></i>
+                                        <h3 class="ml-3">${m.name}</h3>
+                                    </div>
+                                    <span class="d-inline-block arrow-indicator"><i class="fas fa-chevron-down"></i></span>
                                   </div>
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
@@ -306,7 +312,7 @@ function buildLocationList(data) {
                           <div id="collapse-${m.id}" class="collapse" aria-labelledby="heading-${m.id}" data-parent="#cityAccordionId">
                             <div class="accordion-expand-js d-flex flex-column align-items-start mt-2">
                               <h4 class="text-white">${m.movie_title}</h4>
-                              <a class="get-ticket-btn" href="http://${m.url}" target="_blank"><i class="fab fa-ticket"></i> ${location.pathname === '/' ? 'Koop Tickets' : 'Get Tickets'}</a>
+                              <a class="get-ticket-btn" href="http://${m.url}" target="_blank"><i class="fab fa-ticket"></i> ${location.pathname === '/' ? 'Bekijk Bioscooppagina' : 'Go to Cinema page'}</a>
                             </div>
                           </div>
                         </div>

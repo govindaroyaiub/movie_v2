@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter');
 
 :root {
-    --primary-light: #74acc4;
-    --primary-dark: #529dbc;
+    --primary-light: #de6817;
+    --primary-dark: #d04e44;
     --extend: #353b48;
     --secondary-light: #282c34;
     --secondary-dark: #20232a;
@@ -49,7 +49,7 @@ img {
 
 .hastag {
     color: var(--primary-dark);
-    font-weight: bold;
+    font-weight: 900 !important;
 }
 
 .flags img {
@@ -481,3 +481,9 @@ img {
     color: #fff;
     font-size: 2rem;
 }
+
+.arrow-indicator i {
+    display: inline-block;
+    font-size: 1.5rem !important;
+}
+
