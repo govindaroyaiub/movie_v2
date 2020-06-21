@@ -130,6 +130,60 @@ class AdminController extends Controller
         $movie_details = Movie::where('id', $id)->first();
         return view('edit-movie', compact('movie_details', 'id'));
     }
+
+    public function tmd_edit(Request $request, $id)
+    {
+        $tmd_details = [
+            'movie_title' => $request->movie_title,
+            'director' => $request->director,
+            'producer' => $request->producer,
+            'writer' => $request->writer,
+            'actors' => $request->actors,
+            'youtube_url' => $request->youtube_url,
+            'duration' => $request->duration,
+            'base_url' => $request->base_url,
+            'fb_link' => $request->fb_link,
+            'twitter_link' => $request->twitter_link,
+            'hashtag' => $request->hashtag,
+            'fb_pixel' => $request->fb_pixel,
+            'google_pixel' => $request->google_pixel
+        ];
+
+        Movie::where('id', $id)->update($tmd_details);
+        return redirect('/movielist/edit/'.$id)->with('info', 'The Major Details has been updated!');
+    }
+
+    public function en_edit(Request $request, $id)
+    {
+        $en_details = [
+            'movie_description_short' => $request->movie_description_short,
+            'movie_description_long' => $request->movie_description_long,
+            'buy_tickets' => $request->buy_tickets,
+            'cookies' => $request->cookies_en,
+            'terms_of_use' => $request->terms_of_use,
+            'privacy_policy' => $request->privacy_policy,
+            'credits' => $request->credits
+        ];
+
+        Movie::where('id', $id)->update($en_details);
+        return redirect('/movielist/edit/'.$id)->with('info', 'EN Details has been updated!');
+    }
+
+    public function nl_edit(Request $request, $id)
+    {
+        $nl_details = [
+            'movie_description_short_nl' => $request->movie_description_short_nl,
+            'movie_description_long_nl' => $request->movie_description_long_nl,
+            'buy_tickets_nl' => $request->buy_tickets_nl,
+            'cookies_nl' => $request->cookies_nl,
+            'terms_of_use_nl' => $request->terms_of_use_nl,
+            'privacy_policy_nl' => $request->privacy_policy_nl,
+            'credits_nl' => $request->credits_nl
+        ];
+
+        Movie::where('id', $id)->update($nl_details);
+        return redirect('/movielist/edit/'.$id)->with('info', 'NL Details has been updated!');
+    }
     
     public function movie_edit_post(Request $request, $id)
     {
