@@ -37,6 +37,11 @@
         font-size: .875rem;
         display: block;
         transition: 0.3s;
+        width: 100%;
+    }
+
+    .hastag {
+        margin-left: -48px;
     }
 
     .movie-menu a:hover {
@@ -45,8 +50,8 @@
 
     .movie-menu .closebtn {
         position: absolute;
-        top: -1rem;
-        right: 1rem;
+        top: -14px;
+        right: -208px;
         font-size: 2rem;
     }
 

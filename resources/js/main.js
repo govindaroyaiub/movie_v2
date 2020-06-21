@@ -15,7 +15,7 @@ window.axios = require('axios');
 $(document).ready(function () {
     setTimeout(function () {
         $('.trailer-video').trigger('click');
-    }, 10);
+    }, 0);
 
     const videoUrl = $('.trailer-video').attr('href');
 

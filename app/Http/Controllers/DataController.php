@@ -92,36 +92,6 @@ class DataController extends Controller
         }
     }
 
-    public function videos()
-    {
-        $title = new \Imdb\Title(7374926);
-        $rating = $title->rating();
-        $app_url = 'https://movie.planetnine.com/';
-        $movie_details = Movie::where('base_url', '=', $app_url)->first();
-        $current_date = date('Y-m-d');
-        $youtube_url_db = Movie::select('youtube_url')->where('base_url', '=', $app_url)->first();
-        $youtube_link = explode("/", $youtube_url_db['youtube_url']);
-        $last_youtube_part = end($youtube_link);
-        array_pop($youtube_link);
-        $youtube_first = implode("/", $youtube_link);
-        $youtube_url = 'https://youtube.com/embed/' . $last_youtube_part;
-        $poster = Movie::select('image1', 'image2', 'image3')->where('base_url', '=', $app_url)->first();
-
-        return view('movie.videos', compact('movie_details', 'youtube_url'));
-    }
-
-    public function synopsis()
-    {
-        $title = new \Imdb\Title(7374926);
-        $rating = $title->rating();
-        $app_url = 'https://movie.planetnine.com/';
-        $movie_details = Movie::where('base_url', '=', $app_url)->first();
-        $current_date = date('Y-m-d');
-        $poster = Movie::select('image1', 'image2', 'image3')->where('base_url', '=', $app_url)->first();
-
-        return view('movie.synopsis', compact('movie_details', 'poster', 'rating'));
-    }
-
     public function showsApi()
     {
         $app_url = 'https://movie.planetnine.com/';

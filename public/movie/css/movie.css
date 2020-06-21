@@ -35,8 +35,20 @@ img {
     height: 100vh;
 }
 
-nav ul a {
-    cursor: pointer;
+.nav-menu {
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-link {
+    display: inline-block !important;
+    cursor: pointer !important;
+    margin: 0 1rem !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
 }
 
 .movie-content {
