@@ -118,6 +118,11 @@ class HomeController extends Controller
                     $google_pixel = $worksheet3->getCellByColumnAndRow(34, $row)->getValue();
                     $cinema_date = date('Y-m-d',\PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($cinema_date_sheet));
                     
+                    if($get_base_url != 'http://bacarau-defilm.nl/')
+                    {
+                        return back()->with('info', 'The base_url column is not : http://bacarau-defilm.nl/. Please correct it!');
+                    }
+                        
                     if($movie_title != NULL)
                     {
                         $movie_details = [
