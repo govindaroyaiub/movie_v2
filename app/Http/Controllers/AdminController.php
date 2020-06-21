@@ -87,16 +87,34 @@ class AdminController extends Controller
 
     public function movielist()
     {
-        $movie_list = Movie::join('users', 'users.id', 'movie_details.uploaded_by')
-                            ->select(
-                                'movie_details.id',
-                                'users.name',
-                                'users.is_admin',
-                                'movie_details.movie_title',
-                                'movie_details.base_url'
-                            )
-                            ->where('movie_details.is_delete', '0')
-                            ->get();
+        if(Auth::user()->is_admin == 0)
+        {
+            $movie_list = Movie::join('users', 'users.id', 'movie_details.uploaded_by')
+                                ->select(
+                                    'movie_details.id',
+                                    'users.name',
+                                    'users.is_admin',
+                                    'movie_details.movie_title',
+                                    'movie_details.base_url'
+                                )
+                                ->where('movie_details.is_delete', '0')
+                                ->where('movie_details.uploaded_by', Auth::user()->id)
+                                ->get();
+        }
+        else
+        {
+            $movie_list = Movie::join('users', 'users.id', 'movie_details.uploaded_by')
+                                ->select(
+                                    'movie_details.id',
+                                    'users.name',
+                                    'users.is_admin',
+                                    'movie_details.movie_title',
+                                    'movie_details.base_url'
+                                )
+                                ->where('movie_details.is_delete', '0')
+                                ->get();
+
+        }
 
         return view('movielist', compact('movie_list'));
     }
