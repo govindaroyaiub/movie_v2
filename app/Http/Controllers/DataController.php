@@ -9,6 +9,7 @@ use App\Location;
 
 class DataController extends Controller
 {
+
     public function index()
     {
         $title = new \Imdb\Title(7374926);

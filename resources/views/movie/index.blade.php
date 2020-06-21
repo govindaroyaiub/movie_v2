@@ -22,6 +22,32 @@
     </header>
 
 
+    <nav>
+        <ul>
+            <li><a href="#" class="tablink" onclick="openPage('home', this)" id="defaultOpen">Home</a></li>
+            <li><a href="#" class="tablink" onclick="openPage('about', this)">About</a></li>
+            <li><a href="#" class="tablink" onclick="openPage('contact', this)">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="home" class="tabcontent">
+            <h3>Home</h3>
+            <p>Home is where the heart is..</p>
+        </div>
+
+        <div id="about" class="tabcontent">
+            <h3>About</h3>
+            <p>Who we are and what we do.</p>
+        </div>
+
+        <div id="contact" class="tabcontent">
+            <h3>Contact</h3>
+            <p>Get in touch, or swing by for a cup of coffee.</p>
+        </div>
+    </main>
+
+
     <div class="menu-toggler">
         <div class="container">
             <span class="menu-toggle">&#9776;</span>
