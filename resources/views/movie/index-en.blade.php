@@ -135,6 +135,7 @@
                             <p><span>Produced by:</span> {{ $movie_details->producer }}</p>
                             <p><span>Casts:</span> {{ $movie_details->actors }}</p>
                             <p><span>Duration:</span> {{ $movie_details->duration }}</p>
+                            <p><span>Ratings:</span> {{ $rating }}</p>
                         </div>
                     </div>
                 </div>

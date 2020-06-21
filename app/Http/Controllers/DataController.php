@@ -12,7 +12,7 @@ class DataController extends Controller
 
     public function index()
     {
-        $title = new \Imdb\Title(7374926);
+        $title = new \Imdb\Title(2762506);
         $rating = $title->rating();
 
         $app_url = 'http://bacarau-defilm.nl/';
@@ -54,7 +54,7 @@ class DataController extends Controller
 
     public function english_landing()
     {
-        $title = new \Imdb\Title(7374926);
+        $title = new \Imdb\Title(2762506);
         $rating = $title->rating();
 
         $app_url = 'http://bacarau-defilm.nl/';
