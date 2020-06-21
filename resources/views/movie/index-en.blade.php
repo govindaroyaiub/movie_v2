@@ -70,8 +70,8 @@
                         </form>
 
                         <div class="search-meta text-center my-2">
-                            <p>kies uw stad of locatie</p>
-                            <p>meer vertoningen in deze steden</p>
+                            <p>ENTER YOUR LOCATION ABOVE OR SELECT YOUR THEATER BELOW</p>
+                            <p>MORE SHOWTIMES FOUND IN THE CITIES BELOW</p>
 
                             <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
                             <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
@@ -79,7 +79,7 @@
                             <ul class="city-map-js my-3"></ul>
                         </div>
 
-                        <p class="text-center my-2">bekijk de trailer</p>
+                        <p class="text-center my-2">WATCH THE TRAILER</p>
 
                         <div class="youtube-trailer">
                             <iframe class="yt-iframe" src="{{ $youtube_url }}"
@@ -146,7 +146,7 @@
                     <a class="nav-link" data-toggle="tab" href="#cookies">Cookies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Gebruiksvoorwaarden</a>
+                    <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Terms of Use</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#privacy-policy">Privacy Policy</a>

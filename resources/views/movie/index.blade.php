@@ -70,8 +70,8 @@
                         </form>
 
                         <div class="search-meta text-center my-2">
-                            <p>kies uw stad of locatie</p>
-                            <p>meer vertoningen in deze steden</p>
+                            <p>KIES UW STAD OF LOCATIE</p>
+                            <p>MEER VERTONINGEN IN DEZE STEDEN</p>
 
                             <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
                             <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
@@ -79,7 +79,7 @@
                             <ul class="city-map-js my-3"></ul>
                         </div>
 
-                        <p class="text-center my-2">bekijk de trailer</p>
+                        <p class="text-center my-2">BEKIJK DE TRAILER</p>
 
                         <div class="youtube-trailer">
                             <iframe class="yt-iframe" src="{{ $youtube_url }}"
