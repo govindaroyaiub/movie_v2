@@ -31,30 +31,6 @@ $(document).ready(function () {
     });
 });
 
-
-// Fullpage tab
-const navTabLinks = document.querySelectorAll('.tablink');
-
-navTabLinks.forEach(navTabLink => {
-    navTabLink.addEventListener('click', e => {
-        e.preventDefault();
-    })
-});
-
-function openPage(pageName, element) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-    }
-    document.getElementById(pageName).style.display = "block";
-}
-
-document.getElementById("defaultOpen").click();
-
 // mobile menu
 const sidenav = document.querySelector('.movie-menu');
 const menuToggler = document.querySelector('.menu-toggler');

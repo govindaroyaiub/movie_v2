@@ -21,7 +21,6 @@
         @include('movie._flag')
     </header>
 
-
     <div class="menu-toggler">
         <div class="container">
             <span class="menu-toggle">&#9776;</span>
@@ -33,20 +32,24 @@
             <div class="row">
                 <div class="col-md-10 mx-auto">
                     <a href="javascript:void(0)" class="closebtn">&times;</a>
-
-                    <nav class="nav-menu nav nav-pills" role="tablist">
-                        <a class="menu-link active" data-toggle="pill" role="tab" href="#bp">Go to cinema</a>
-                        <a class="menu-link" data-toggle="pill" role="tab" href="#vdo">Videos</a>
-                        <a class="menu-link" data-toggle="pill" role="tab" href="#sy">Synopsis</a>
-                        <div class="hastag">{{ $movie_details->hashtag }}</div>
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Bioscoop
+                                    pagina</a></li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a>
+                            </li>
+                            <li class="hastag">{{ $movie_details->hashtag }}</li>
+                        </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="tab-content movie-content text-white">
-        <div role="tabpanel" class="tab-pane container-fluid fade in show active" id="bp">
+
+    <div class="movie-content text-white">
+        <div id="bp" class="tabcontent container-fluid">
             <div class="row">
                 <div class="col-xl-4 col-lg-6 poster-hide">
                     <div class="poster">
@@ -70,8 +73,8 @@
                         </form>
 
                         <div class="search-meta text-center my-2">
-                            <p>ENTER YOUR LOCATION ABOVE OR SELECT YOUR THEATER BELOW</p>
-                            <p>MORE SHOWTIMES FOUND IN THE CITIES BELOW</p>
+                            <p>KIES UW STAD OF LOCATIE</p>
+                            <p>MEER VERTONINGEN IN DEZE STEDEN</p>
 
                             <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
                             <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
@@ -79,7 +82,7 @@
                             <ul class="city-map-js my-3"></ul>
                         </div>
 
-                        <p class="text-center my-2">WATCH THE TRAILER</p>
+                        <p class="text-center my-2">BEKIJK DE TRAILER</p>
 
                         <div class="youtube-trailer">
                             <iframe class="yt-iframe" src="{{ $youtube_url }}"
@@ -96,7 +99,8 @@
                 </div>
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane container fade" id="vdo">
+
+        <div id="vdo" class="tabcontent container">
             <div class="row">
                 <div class="col-md-10 mx-auto">
                     <iframe class="w-100" height="400" src="{{ $youtube_url }}"
@@ -106,7 +110,8 @@
                 </div>
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane container fade" id="sy">
+
+        <div id="sy" class="tabcontent container">
             <div class="row">
                 <div class="col-md-3 mb-5 mx-auto">
                     <img class="d-block w-100" src="{{ $movie_details->image1 }}" alt="">
@@ -146,7 +151,7 @@
                     <a class="nav-link" data-toggle="tab" href="#cookies">Cookies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Terms of Use</a>
+                    <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Gebruiksvoorwaarden</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#privacy-policy">Privacy Policy</a>
@@ -203,6 +208,21 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone.min.js"></script>
 <script src='//api.tiles.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
 <script src="{{ mix('js/main.js') }}"></script>
+<script>
+    document.querySelectorAll('.tablink').forEach(navTabLink => navTabLink.addEventListener('click', e => e.preventDefault()));
+
+    function openPage(pageName, element) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        document.getElementById(pageName).style.display = "block";
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>
 
