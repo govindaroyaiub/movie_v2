@@ -20,8 +20,6 @@ class ShowLocationStaticTable extends Migration
             $table->string('zip')->nullable();
             $table->string('city')->nullable();
             $table->string('phone')->nullable();
-            $table->longText('url')->nullable();
-            $table->longText('image')->nullable();
             $table->string('long')->nullable();
             $table->string('lat')->nullable();
             $table->timestamps();

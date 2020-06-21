@@ -72,21 +72,21 @@ class DataController extends Controller
 
             $poster = Movie::select('image1', 'image2', 'image3')->where('base_url', '=', $app_url)->first();
             $showtime = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
-                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
-                ->where('movie_details.base_url', '=', $app_url)
-                ->where('movie_showtimes.date', '>=', $current_date)
-                ->orderBy('show_location_static.name', 'ASC')
-                ->orderBy('movie_showtimes.date', 'ASC')
-                ->get();
+                                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
+                                ->where('movie_details.base_url', '=', $app_url)
+                                ->where('movie_showtimes.date', '>=', $current_date)
+                                ->orderBy('show_location_static.name', 'ASC')
+                                ->orderBy('movie_showtimes.date', 'ASC')
+                                ->get();
 
             $city = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
-                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
-                ->select('show_location_static.city')
-                ->where('movie_details.base_url', '=', $app_url)
-                ->where('movie_showtimes.date', '>=', $current_date)
-                ->orderBy('show_location_static.city', 'ASC')
-                ->distinct()
-                ->get();
+                                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
+                                ->select('show_location_static.city')
+                                ->where('movie_details.base_url', '=', $app_url)
+                                ->where('movie_showtimes.date', '>=', $current_date)
+                                ->orderBy('show_location_static.city', 'ASC')
+                                ->distinct()
+                                ->get();
 
 
             return view('movie.index-en', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating'));
@@ -99,28 +99,28 @@ class DataController extends Controller
         $movie_details = Movie::where('base_url', '=', $app_url)->first();
         $current_date = date('Y-m-d');
         $showtime = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
-            ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
-            ->select(
-                'movie_details.movie_title',
-                'movie_details.ticket_url',
-                'movie_details.base_url',
-                'movie_showtimes.id',
-                'movie_showtimes.cinema_id',
-                'movie_showtimes.date',
-                'movie_showtimes.time',
-                'show_location_static.name',
-                'show_location_static.address',
-                'show_location_static.zip',
-                'show_location_static.city',
-                'show_location_static.phone',
-                'show_location_static.url',
-                'show_location_static.long',
-                'show_location_static.lat')
-            ->where('movie_details.base_url', '=', $app_url)
-            ->where('movie_showtimes.date', '>=', $current_date)
-            ->orderBy('show_location_static.name', 'ASC')
-            ->orderBy('movie_showtimes.date', 'ASC')
-            ->get();
+                            ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
+                            ->select(
+                                'movie_details.movie_title',
+                                'movie_details.ticket_url',
+                                'movie_details.base_url',
+                                'movie_showtimes.id',
+                                'movie_showtimes.cinema_id',
+                                'movie_showtimes.date',
+                                'movie_showtimes.time',
+                                'show_location_static.name',
+                                'show_location_static.address',
+                                'show_location_static.zip',
+                                'show_location_static.city',
+                                'show_location_static.phone',
+                                'movie_showtimes.url',
+                                'show_location_static.long',
+                                'show_location_static.lat')
+                            ->where('movie_details.base_url', '=', $app_url)
+                            ->where('movie_showtimes.date', '>=', $current_date)
+                            ->orderBy('show_location_static.name', 'ASC')
+                            ->orderBy('movie_showtimes.date', 'ASC')
+                            ->get();
 
         return $showtime;
 

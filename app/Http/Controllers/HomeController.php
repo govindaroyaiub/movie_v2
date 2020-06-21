@@ -225,19 +225,22 @@ class HomeController extends Controller
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
 
                 for ($row = 2; $row <= $highestRow; ++$row) {
-                    $cinema_id = $worksheet2->getCellByColumnAndRow(2, $row)->getValue();
+                    $cinema_details = $worksheet2->getCellByColumnAndRow(2, $row)->getValue();
                     $date_sheet = $worksheet2->getCellByColumnAndRow(3, $row)->getValue();
                     $time_sheet = $worksheet2->getCellByColumnAndRow(4, $row)->getValue();
+                    $url = $worksheet2->getCellByColumnAndRow(5, $row)->getValue();
                     $movie_id = $movie_details['id'];
                     $date = date('Y-m-d',\PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($date_sheet));
                     $time = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($time_sheet)->format('H:i');
-                    
-                    if($cinema_id != NULL)
+                    $cinema_id = explode(" ", $cinema_details);
+
+                    if($cinema_details != NULL)
                     {
                         $showtime = [
-                            'cinema_id' => $cinema_id,
+                            'cinema_id' => $cinema_id[0],
                             'date' => $date,
                             'time' => $time,
+                            'url' => $url,
                             'movie_id' => $movie_id
                         ];
                         array_push($showtime_list, $showtime);
@@ -273,13 +276,12 @@ class HomeController extends Controller
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
                 for ($row = 2; $row <= $highestRow; ++$row) {
                     $name = $worksheet1->getCellByColumnAndRow(2, $row)->getValue();
-                    $address = $worksheet1->getCellByColumnAndRow(3, $row)->getValue();
-                    $zip = $worksheet1->getCellByColumnAndRow(4, $row)->getValue();
-                    $city = $worksheet1->getCellByColumnAndRow(5, $row)->getValue();
-                    $phone = $worksheet1->getCellByColumnAndRow(6, $row)->getValue();
-                    $url = $worksheet1->getCellByColumnAndRow(7, $row)->getValue();
-                    $lat = $worksheet1->getCellByColumnAndRow(9, $row)->getValue();
-                    $long = $worksheet1->getCellByColumnAndRow(10, $row)->getValue();
+                    $address = $worksheet1->getCellByColumnAndRow(4, $row)->getValue();
+                    $zip = $worksheet1->getCellByColumnAndRow(5, $row)->getValue();
+                    $city = $worksheet1->getCellByColumnAndRow(6, $row)->getValue();
+                    $phone = $worksheet1->getCellByColumnAndRow(7, $row)->getValue();
+                    $lat = $worksheet1->getCellByColumnAndRow(8, $row)->getValue();
+                    $long = $worksheet1->getCellByColumnAndRow(9, $row)->getValue();
                     
                     if($name != NULL)
                     {
@@ -289,7 +291,6 @@ class HomeController extends Controller
                             'zip' => $zip,
                             'city' => $city,
                             'phone' => $phone,
-                            'url' => $url,
                             'long' => $long,
                             'lat' => $lat
                         ];
