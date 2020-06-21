@@ -86,6 +86,15 @@
                             <button class="search-button" type="submit">&times;</button>
                         </form>
 
+                        <div class="search-meta text-center my-2">
+                            <p>KIES UW STAD OF LOCATIE</p>
+                            <p>MEER VERTONINGEN IN DEZE STEDEN</p>
+
+                            <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
+                            <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
+
+                        </div>
+
                         <div class="synopsis">
                             <h3 class="text-center mb-2 my-3">
                                 {{ $movie_details->movie_description_short_nl }}
@@ -106,15 +115,8 @@
                             </iframe>
                         </div>
 
-                        <div class="search-meta text-center my-2">
-                            <p>KIES UW STAD OF LOCATIE</p>
-                            <p>MEER VERTONINGEN IN DEZE STEDEN</p>
-
-                            <div class="main-accordion accordion d-none" id="mainAccordionId"></div>
-                            <div class="city-accordion accordion d-none" id="cityAccordionId"></div>
 
                             <ul class="city-map-js my-3"></ul>
-                        </div>
 
                     </div>
                 </div>
