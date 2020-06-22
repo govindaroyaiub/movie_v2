@@ -9,12 +9,13 @@
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
     <style>
-        .panel-heading  a:before {
+        .panel-heading a:before {
             font-family: 'Glyphicons Halflings';
             content: "\e114";
             float: right;
             transition: all 0.5s;
         }
+
         .panel-heading.active a:before {
             -webkit-transform: rotate(180deg);
             -moz-transform: rotate(180deg);
@@ -95,6 +96,8 @@
 
                         </div>
 
+                        <ul class="city-map-js my-3"></ul>
+
                         <div class="synopsis desk-sy">
                             <h3 class="text-center mb-2 my-3">
                                 {{ $movie_details->movie_description_short_nl }}
@@ -115,9 +118,6 @@
                             </iframe>
                         </div>
 
-
-                            <ul class="city-map-js my-3"></ul>
-
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 ">
@@ -126,24 +126,23 @@
             </div>
         </div>
 
-        <div id="vdo" class="tabcontent container">
+        <div id="vdo" class="tabcontent container-fluid">
             <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <iframe class="w-100" height="400" src="{{ $youtube_url }}"
-                            frameborder="0"
+                <div class="col-md-12">
+                    <iframe style="width: 100%; height: 100vh" src="{{ $youtube_url }}" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
-
         <div id="sy" class="tabcontent container">
             <div class="row">
                 <div class="col-md-3 mb-5 mx-auto">
                     <img class="d-block w-100" src="{{ $movie_details->image1 }}" alt="">
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-md-6">
                     <div class="synopsis">
                         <h3 class="text-center mb-2">
@@ -168,66 +167,65 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <footer class="movie-footer text-white text-center">
-        <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#cookies">Cookies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Gebruiksvoorwaarden</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#privacy-policy">Privacy Policy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#credits">Credits</a>
-                </li>
-            </ul>
+        <footer class="movie-footer text-white text-center">
+            <div class="container">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#cookies">Cookies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#Gebruiksvoorwaarden">Gebruiksvoorwaarden</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#privacy-policy">Privacy Policy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#credits">Credits</a>
+                    </li>
+                </ul>
 
-            <div class="tab-content pt-3">
-                <div id="cookies" class="container tab-pane">
-                    <p>
-                        {{ $movie_details->cookies_nl }}
-                    </p>
-                </div>
-                <div id="Gebruiksvoorwaarden" class="container tab-pane fade">
-                    <p>
-                        {{ $movie_details->terms_of_use_nl }}
-                    </p>
-                </div>
-                <div id="privacy-policy" class="container tab-pane fade">
-                    <p>
-                        {{ $movie_details->privacy_policy_nl }}
-                    </p>
-                </div>
-                <div id="credits" class="container tab-pane fade">
-                    <p>
-                        {{ $movie_details->credits_nl }}
-                    </p>
+                <div class="tab-content pt-3">
+                    <div id="cookies" class="container tab-pane">
+                        <p>
+                            {{ $movie_details->cookies_nl }}
+                        </p>
+                    </div>
+                    <div id="Gebruiksvoorwaarden" class="container tab-pane fade">
+                        <p>
+                            {{ $movie_details->terms_of_use_nl }}
+                        </p>
+                    </div>
+                    <div id="privacy-policy" class="container tab-pane fade">
+                        <p>
+                            {{ $movie_details->privacy_policy_nl }}
+                        </p>
+                    </div>
+                    <div id="credits" class="container tab-pane fade">
+                        <p>
+                            {{ $movie_details->credits_nl }}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <ul class="footer-social">
-                        <li class="mr-2"><a target="_blank" href="{{ $movie_details->fb_link }}">
-                                <img width="35" src="{{ asset('images/facebook.svg') }}" alt="">
-                            </a>
-                        <li><a target="_blank" href="{{ $movie_details->twitter_link }}">
-                                <img width="35" src="{{ asset('images/twitter.svg') }}" alt="">
-                            </a>
-                        </li>
-                    </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <ul class="footer-social">
+                            <li class="mr-2"><a target="_blank" href="{{ $movie_details->fb_link }}">
+                                    <img width="35" src="{{ asset('images/facebook.svg') }}" alt="">
+                                </a>
+                            <li><a target="_blank" href="{{ $movie_details->twitter_link }}">
+                                    <img width="35" src="{{ asset('images/twitter.svg') }}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 </section>
 

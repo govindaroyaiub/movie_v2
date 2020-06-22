@@ -81,6 +81,9 @@
 
                         </div>
 
+                        <ul class="city-map-js my-3"></ul>
+
+
                         <div class="synopsis desk-sy">
                             <h3 class="text-center mb-2 my-3">
                                 {{ $movie_details->movie_description_short }}
@@ -102,7 +105,6 @@
                         </div>
 
 
-                        <ul class="city-map-js my-3"></ul>
 
                     </div>
                 </div>
@@ -112,13 +114,13 @@
             </div>
         </div>
 
-        <div id="vdo" class="tabcontent container">
+        <div id="vdo" class="tabcontent container-fluid">
             <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <iframe class="w-100" height="400" src="{{ $youtube_url }}"
-                            frameborder="0"
+                <div class="col-md-12">
+                    <iframe style="width: 100%; height: 100vh" src="{{ $youtube_url }}" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
