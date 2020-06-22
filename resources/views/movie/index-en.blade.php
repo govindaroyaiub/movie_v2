@@ -96,16 +96,12 @@
                         <p class="text-center my-2">WATCH THE TRAILER</p>
 
                         <div class="youtube-trailer">
-                            <iframe class="yt-iframe" src="{{ $youtube_url }}"
-                                    frameborder="0"
-                                    loading="lazy"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                            </iframe>
+                            <div class="iframe-container mb-2">
+                                <iframe src="{{ $youtube_url }}" class="iframe-video"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
                         </div>
-
-
-
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 ">
@@ -114,13 +110,14 @@
             </div>
         </div>
 
-        <div id="vdo" class="tabcontent container-fluid">
+        <div id="vdo" class="tabcontent container">
             <div class="row">
                 <div class="col-md-12">
-                    <iframe style="width: 100%; height: 100vh" src="{{ $youtube_url }}" frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <div class="iframe-container">
+                        <iframe src="{{ $youtube_url }}" class="iframe-video"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
