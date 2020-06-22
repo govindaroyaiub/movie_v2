@@ -228,7 +228,7 @@ class AdminController extends Controller
 
     public function theaterlist()
     {
-        $theaterlist = Location::orderBy('name')->get();
+        $theaterlist = Location::orderBy('name', 'ASC')->get();
         return view('theaterlist', compact('theaterlist'));
     }
 
@@ -270,4 +270,5 @@ class AdminController extends Controller
         Location::where('id', $id)->delete();
         return back()->with('info', 'Theater has been deleted!');
     }
+
 }
