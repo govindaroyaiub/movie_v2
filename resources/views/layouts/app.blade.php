@@ -7,6 +7,11 @@
     <title>Admin</title>
     <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    <style>
+    .custom {
+        width: 72px !important;
+    }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -22,8 +27,9 @@
                     
                 @else
                     @if(Auth::user()->is_admin == 1)
-                    <a class="navbar" href="{{ url('/userlist') }}" @if(request()->is('userlist') || request()->is('userlist/*')) style="background-color: #badefb;" @endif>
-                    Users
+                    <a class="navbar" href="{{ url('/userlist') }}" @if(request()->is('userlist') || request()->is('userlist/*')) style="background-color: #badefb;" @endif>Users
+                    <a class="navbar" href="{{ url('/theaterlist') }}" @if(request()->is('theaterlist') || request()->is('theaterlist/*')) style="background-color: #badefb;" @endif>Theaters
+                    
                     </a>
                     @endif
                     <a class="navbar" href="{{ url('/movielist') }}" @if(request()->is('movielist') || request()->is('movielist/*')) style="background-color: #badefb;" @endif>

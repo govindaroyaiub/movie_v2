@@ -24,6 +24,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/userlist/edit/{id}', 'AdminController@edit_user');
     Route::post('/userlist/edit/{id}', 'AdminController@edit_user_post');
 
+    Route::get('/theaterlist', 'AdminController@theaterlist');
+    Route::post('/theaterlist/create', 'AdminController@theater_create');
+    Route::get('/theaterlist/delete/{id}', 'AdminController@theater_delete');
+
     Route::get('/movielist', 'AdminController@movielist');
     Route::get('/movielist/edit/{id}', 'AdminController@movie_edit');
     Route::post('/movielist/edit/tmd/{id}', 'AdminController@tmd_edit');

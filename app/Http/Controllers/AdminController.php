@@ -225,4 +225,49 @@ class AdminController extends Controller
             'uploaded_by' => $user_id
         ];
     }
+
+    public function theaterlist()
+    {
+        $theaterlist = Location::orderBy('name')->get();
+        return view('theaterlist', compact('theaterlist'));
+    }
+
+    public function theater_create(Request $request)
+    {
+        // dd('Function will be available soon');
+
+        $request->validate([
+            'name' => 'unique:show_location_static',
+            'phone' => 'unique:show_location_static',
+            'long' => 'numeric',
+            'lat' => 'numeric'
+        ]);
+
+        $name = $request->name;
+        $address = $request->address;
+        $zip = $request->zip;
+        $city = $request->city;
+        $phone = $request->phone;
+        $long = $request->long;
+        $lat = $request->lat;
+
+        $theater_details = [
+            'name' => $name,
+            'address' => $address,
+            'zip' => $zip,
+            'city' => $city,
+            'phone' => $phone,
+            'long' => $long,
+            'lat' => $lat
+        ];
+        Location::insert($theater_details);
+        return back()->with('info', 'Theater: '. $name. ' has been created');
+
+    }
+
+    public function theater_delete($id)
+    {
+        Location::where('id', $id)->delete();
+        return back()->with('info', 'Theater has been deleted!');
+    }
 }
