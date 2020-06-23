@@ -25,7 +25,7 @@
 </head>
 <body>
 
-{{--<a class="trailer-video d-none" href="{{ $youtube_url }}?autoplay=1&mute=1"></a>--}}
+<a class="trailer-video d-none" href="{{ $youtube_url }}?autoplay=1&mute=1"></a>
 
 <section id="root" class="mvoie-body">
     <header class="movie-header position-relative text-white py-3">

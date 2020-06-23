@@ -212,6 +212,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="footer-dist-logos">
+                <img src="{{ asset('images/distributor-cherry-pickers.png') }}" alt="">
+                <img src="{{ asset('images/p9.png') }}" alt="">
+                <img src="{{ asset('images/partner-filminc.png') }}" alt="">
+            </div>
+        </div>
     </footer>
 
 </section>
