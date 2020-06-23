@@ -271,4 +271,26 @@ class AdminController extends Controller
         return back()->with('info', 'Theater has been deleted!');
     }
 
+    public function theater_edit($id)
+    {
+        $theater_details = Location::where('id', $id)->first();
+        return view('theater-edit', compact('id', 'theater_details'));
+    }
+
+    public function theater_edit_post(Request $request, $id)
+    {
+        $name = $request->name;
+        $theater_details = [
+            'name' => $request->name,
+            'address' => $request->address,
+            'zip' => $request->zip,
+            'city' => $request->city,
+            'phone' => $request->phone,
+            'long' => $request->long,
+            'lat' => $request->lat
+        ];
+        Location::where('id', $id)->update($theater_details);
+        return back()->with('info', 'Theater '.$name. ' has been updated!');
+    }
+
 }

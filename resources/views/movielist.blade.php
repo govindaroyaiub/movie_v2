@@ -34,7 +34,7 @@
                                     <td>{{$row->name}} (@if($row->is_admin == 1) Admin @else Client @endif)</td>
                                     @endif
                                     <td>
-                                    <a href="/movielist/edit/{{$row->id}}" target="_blank"><button class="btn btn-primary text-white custom">Edit</button></a>
+                                    <a href="/movielist/edit/{{$row->id}}"><button class="btn btn-primary text-white custom">Edit</button></a>
                                     <a href="/movielist/delete/{{$row->id}}"><button class="btn btn-danger text-white custom">Delete</button></a>
                                     </td>
                                 </tr>

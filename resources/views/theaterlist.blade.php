@@ -38,7 +38,7 @@
                                     <td>{{$row->long}}</td>
                                     <td>{{$row->lat}}</td>
                                     <td>
-                                        <a href="/theaterlist/edit/{{$row->id}}" target="_blank"><button class="btn btn-primary text-white custom">Edit</button></a>
+                                        <a href="/theaterlist/edit/{{$row->id}}"><button class="btn btn-primary text-white custom">Edit</button></a>
                                         {{--<a href="/theaterlist/delete/{{$row->id}}"><button class="btn btn-danger text-white custom">Delete</button></a>--}}
                                     </td>
                                 </tr>

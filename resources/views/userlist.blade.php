@@ -30,7 +30,7 @@
                                     <td>{{$row->email}}</td>
                                     <td>@if($row->is_admin == 1) Admin @else Client @endif</td>
                                     <td>
-                                    <a href="/userlist/edit/{{$row->id}}" target="_blank"><button class="btn btn-primary text-white custom">Edit</button></a>
+                                        <a href="/userlist/edit/{{$row->id}}"><button class="btn btn-primary text-white custom">Edit</button></a>
                                         <a href="/userlist/delete/{{$row->id}}"><button class="btn btn-danger text-white custom">Delete</button></a>
                                     </td>
                                 </tr>
