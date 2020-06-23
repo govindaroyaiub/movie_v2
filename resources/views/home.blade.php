@@ -11,23 +11,26 @@
                     @include('alert')
 
                     <form method="post" action="/upload" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    @if(Auth::user()->is_admin == 1)
-                    <div class="form-group">
-                        <select class="form-control select2" id="client_id" name="client_id" required>
-                            <option value="">Select Client</option>
-                            @foreach($user_list as $row)
-                            <option value="{{$row->id}}">{{$row->name}} ({{$row->email}})</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @endif
-                    <div class="form-group">
-                        <input type="file" name="file" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary text-white">Upload file</button>
-                    </div>
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Select movie from the drop down list</label>
+                            <select class="form-control select2" id="movie_id" name="movie_id" required>
+                                <option value="">Select Movie</option>
+                                @foreach($movie_list as $row)
+                                <option value="{{$row->id}}">{{$row->movie_title}} ({{$row->base_url}})</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <label>&#8226; Please use the Google Sheet from <a href="" target="_blank">here.</a></label>
+                        <br>
+                        <label>&#8226; Download the sheet as Xlsx format and upload.</label>
+                        <hr>
+                        <div class="form-group">
+                            <input type="file" name="file" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary text-white">Upload file</button>
+                        </div>
                     </form>
                 </div>
             </div>

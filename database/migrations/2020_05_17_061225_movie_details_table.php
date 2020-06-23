@@ -35,6 +35,7 @@ class MovieDetailsTable extends Migration
             $table->string('ratings')->nullable();
             $table->longText('base_url')->nullable();
             $table->longText('ticket_url')->nullable();
+            $table->longText('google_sheet')->nullable();
             $table->longText('fb_link')->nullable();
             $table->longText('twitter_link')->nullable();
             $table->string('hashtag')->nullable();
