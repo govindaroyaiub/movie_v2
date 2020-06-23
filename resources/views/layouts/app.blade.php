@@ -150,8 +150,9 @@
 <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" defer></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript">
     function show_password() {
@@ -194,5 +195,27 @@
         $('.select2').select2();
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+      $('#movie_id').change(function()
+      {
+        var error_mail = '';
+        var movie_id = $('#movie_id').val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url: "{{route('google_sheet.check')}}",
+            method: "POST",
+            data: {movie_id:movie_id, _token:_token},
+            success: function(result)
+            {
+              var google_sheet = result.google_sheet;
+              document.getElementById("google_sheet_ajax").href = "http://www.cnn.com/";
+
+            }
+          })
+      });
+    });
+  </script>
 </body>
 </html>
