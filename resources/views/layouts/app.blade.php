@@ -20,21 +20,37 @@
             <a class="navbar-brand" href="{{ url('/') }}" target="_blank">
                 Admin
                 </a>
-                <a class="navbar" href="{{ url('/home') }}" @if(request()->is('home')) style="background-color: #badefb;" @endif>
-                Home
-                </a>
                 @guest
                     
                 @else
                     @if(Auth::user()->is_admin == 1)
-                    <a class="navbar" href="{{ url('/userlist') }}" @if(request()->is('userlist') || request()->is('userlist/*')) style="background-color: #badefb;" @endif>Users
-                    <a class="navbar" href="{{ url('/theaterlist') }}" @if(request()->is('theaterlist') || request()->is('theaterlist/*')) style="background-color: #badefb;" @endif>Theaters
-                    
+                    <a class="navbar" href="{{ url('/home') }}" @if(request()->is('home')) style="background-color: #badefb;" @endif>
+                    Showtime
                     </a>
-                    @endif
+                    <a class="navbar" href="{{ url('/userlist') }}" @if(request()->is('userlist') || request()->is('userlist/*')) style="background-color: #badefb;" @endif>Users</a>
+                    <a class="navbar" href="{{ url('/theaterlist') }}" @if(request()->is('theaterlist') || request()->is('theaterlist/*')) style="background-color: #badefb;" @endif>Theaters</a>
                     <a class="navbar" href="{{ url('/movielist') }}" @if(request()->is('movielist') || request()->is('movielist/*')) style="background-color: #badefb;" @endif>
                     Movies
-                </a>
+                    </a>
+                    <div class="dropdown show">
+                        <a class="navbar dropdown-toggle" href="#" @if(request()->is('partnerlist') || request()->is('partnerlist/*')) style="background-color: #badefb;" @endif id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            The Partners
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/partnerlist/distributors">Distributors</a>
+                            <a class="dropdown-item" href="/partnerlist/media_partners">Media Partners</a>
+                        </div>
+                    </div>
+                    @else
+                    <a class="navbar" href="{{ url('/home') }}" @if(request()->is('home')) style="background-color: #badefb;" @endif>
+                    Showtime
+                    </a>
+                    <a class="navbar" href="{{ url('/movielist') }}" @if(request()->is('movielist') || request()->is('movielist/*')) style="background-color: #badefb;" @endif>
+                    Movies
+                    </a>
+                    @endif
+                    
             @endguest
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -192,6 +208,22 @@
             ]
         });
 
+        $('#distributorlist').DataTable({
+            responsive: true,
+            "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+            ]
+        });
+
+        $('#media_partner_list').DataTable({
+            responsive: true,
+            "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+            ]
+        });
+
         $('.select2').select2();
     });
 </script>
@@ -200,7 +232,6 @@
     {
       $('#movie_id').change(function()
       {
-        var error_mail = '';
         var movie_id = $('#movie_id').val();
         var _token = $('input[name="_token"]').val();
         $.ajax({
@@ -211,11 +242,10 @@
             {
               var google_sheet = result.google_sheet;
               document.getElementById("google_sheet_ajax").href = result.google_sheet;
-
             }
           })
       });
     });
-  </script>
+</script>
 </body>
 </html>

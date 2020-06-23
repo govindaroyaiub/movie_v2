@@ -51,6 +51,8 @@ class MovieDetailsTable extends Migration
             $table->longText('google_pixel')->nullable();
             $table->string('is_delete')->nullable();
             $table->string('uploaded_by')->nullable();
+            $table->string('d_id')->nullable();
+            $table->string('mp_id')->nullable();
             $table->timestamps();
         });
     }

@@ -214,9 +214,9 @@
 
         <div class="container">
             <div class="footer-dist-logos">
-                <img src="{{ asset('images/distributor-cherry-pickers.png') }}" alt="">
+                <img src="/distributors/{{ $d_details['logo'] }}" alt="">
                 <img src="{{ asset('images/p9.png') }}" alt="">
-                <img src="{{ asset('images/partner-filminc.png') }}" alt="">
+                <img src="/media_partners/{{ $mp_details['logo'] }}" alt="">
             </div>
         </div>
     </footer>

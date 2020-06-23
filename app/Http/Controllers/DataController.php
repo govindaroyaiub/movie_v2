@@ -30,23 +30,33 @@ class DataController extends Controller
 
             $poster = Movie::select('image1', 'image2', 'image3')->where('base_url', '=', $app_url)->first();
             $showtime = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
-                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
-                ->where('movie_details.base_url', '=', $app_url)
-                ->where('movie_showtimes.date', '>=', $current_date)
-                ->orderBy('show_location_static.name', 'ASC')
-                ->orderBy('movie_showtimes.date', 'ASC')
-                ->get();
+                                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
+                                ->where('movie_details.base_url', '=', $app_url)
+                                ->where('movie_showtimes.date', '>=', $current_date)
+                                ->orderBy('show_location_static.name', 'ASC')
+                                ->orderBy('movie_showtimes.date', 'ASC')
+                                ->get();
 
             $city = Showtime::join('movie_details', 'movie_showtimes.movie_id', 'movie_details.id')
-                ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
-                ->select('show_location_static.city')
-                ->where('movie_details.base_url', '=', $app_url)
-                ->where('movie_showtimes.date', '>=', $current_date)
-                ->orderBy('show_location_static.city', 'ASC')
-                ->distinct()
-                ->get();
+                            ->join('show_location_static', 'movie_showtimes.cinema_id', 'show_location_static.id')
+                            ->select('show_location_static.city')
+                            ->where('movie_details.base_url', '=', $app_url)
+                            ->where('movie_showtimes.date', '>=', $current_date)
+                            ->orderBy('show_location_static.city', 'ASC')
+                            ->distinct()
+                            ->get();
 
-            return view('movie.index', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating'));
+            $d_details = Movie::join('distributors', 'distributors.id', 'movie_details.d_id')
+                            ->select('distributors.logo')
+                            ->where('movie_details.base_url', '=', $app_url)
+                            ->first();
+
+            $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.d_id')
+                            ->select('media_partners.logo')
+                            ->where('movie_details.base_url', '=', $app_url)
+                            ->first();       
+
+            return view('movie.index', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating', 'd_details', 'mp_details'));
 
 //            dd($movie_details);
         }
@@ -89,7 +99,17 @@ class DataController extends Controller
                                 ->get();
 
 
-            return view('movie.index-en', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating'));
+            $d_details = Movie::join('distributors', 'distributors.id', 'movie_details.d_id')
+                                ->select('distributors.logo')
+                                ->where('movie_details.base_url', '=', $app_url)
+                                ->first();
+
+            $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.d_id')
+                                ->select('media_partners.logo')
+                                ->where('movie_details.base_url', '=', $app_url)
+                                ->first();                   
+
+            return view('movie.index-en', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating', 'd_details', 'mp_details'));
         }
     }
 

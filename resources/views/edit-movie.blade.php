@@ -110,6 +110,27 @@
                                                 rows="6" cols="50">{{ $movie_details['google_pixel'] }}</textarea>
                                         </div>
 
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="d_id">Distributor</label>
+                                                <select class="form-control select2" id="d_id" name="d_id" style="width: 100%;" required>
+                                                    <option value="">Select Distributor</option>
+                                                    @foreach($d_list as $row)
+                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['d_id']) selected @endif)>{{$row->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <label for="mp_id">Media Partner</label>
+                                                <select class="form-control select2" id="mp_id" name="mp_id" style="width: 100%;" required>
+                                                    <option value="">Select Movie Partner</option>
+                                                    @foreach($mp_list as $row)
+                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['mp_id']) selected @endif)>{{$row->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="modal-footer">
                                             <button type="submit"
                                                 class="form-control-user btn btn-primary">Update</button>

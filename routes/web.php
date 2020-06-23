@@ -40,4 +40,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/movielist/edit/{id}', 'AdminController@movie_edit_post');
     Route::get('/movielist/delete/{id}', 'AdminController@movie_delete');
 
+    Route::get('/partnerlist/distributors', 'AdminController@d_list');
+    Route::post('/partnerlist/distributor/create', 'AdminController@d_create');
+    Route::get('/partnerlist/distributor/edit/{id}', 'AdminController@d_edit');
+    Route::post('/partnerlist/distributor/edit/{id}', 'AdminController@d_edit_post');
+    Route::get('/partnerlist/distributor/delete/{id}', 'AdminController@d_delete');
+
+    Route::get('/partnerlist/media_partners', 'AdminController@mp_list');
+    Route::post('/partnerlist/media_partner/create', 'AdminController@mp_create');
+    Route::get('/partnerlist/media_partner/edit/{id}', 'AdminController@mp_edit');
+    Route::post('/partnerlist/media_partner/edit/{id}', 'AdminController@mp_edit_post');
+    Route::get('/partnerlist/media_partner/delete/{id}', 'AdminController@mp_delete');
 });

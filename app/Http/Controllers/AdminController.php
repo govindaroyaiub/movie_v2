@@ -9,6 +9,8 @@ use App\Movie;
 use App\Showtime;
 use App\Location;
 use App\User;
+use App\Distributor;
+use App\MediaPartner;
 use Auth;
 
 class AdminController extends Controller
@@ -120,7 +122,7 @@ class AdminController extends Controller
         return view('movielist', compact('movie_list', 'user_list'));
     }
 
-    public function movie_create(Request $request)
+    public function movie_create(Request $request)  
     {
         $movie_title = $request->movie_title;
         $movie_details = [
@@ -143,7 +145,9 @@ class AdminController extends Controller
     public function movie_edit($id)
     {
         $movie_details = Movie::where('id', $id)->first();
-        return view('edit-movie', compact('movie_details', 'id'));
+        $d_list = Distributor::get();
+        $mp_list = MediaPartner::get();
+        return view('edit-movie', compact('movie_details', 'id', 'd_list', 'mp_list'));
     }
 
     public function tmd_edit(Request $request, $id)
@@ -162,7 +166,9 @@ class AdminController extends Controller
             'twitter_link' => $request->twitter_link,
             'hashtag' => $request->hashtag,
             'fb_pixel' => $request->fb_pixel,
-            'google_pixel' => $request->google_pixel
+            'google_pixel' => $request->google_pixel,
+            'd_id' => $request->d_id,
+            'mp_id' => $request->mp_id
         ];
 
         Movie::where('id', $id)->update($tmd_details);
@@ -308,5 +314,136 @@ class AdminController extends Controller
         Location::where('id', $id)->update($theater_details);
         return back()->with('info', 'Theater '.$name. ' has been updated!');
     }
+
+    public function d_list()
+    {
+        $d_list = Distributor::get();
+        return view('d_list', compact('d_list'));
+    }
+
+    public function d_create(Request $request)
+    {
+        $request->validate([
+            'd_logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->d_logo->extension();  
+        $request->d_logo->move(public_path('distributors'), $imageName);
+
+        $d_details = [
+            'name' => $request->d_name,
+            'email' => $request->d_email,
+            'logo' => $imageName,
+        ];
+        Distributor::insert($d_details);
+        return back()->with('info', 'Distributor created!');
+    }
+
+    public function d_edit(Request $request, $id)
+    {
+        $d_details = Distributor::where('id', $id)->first();
+        return view('d_edit', compact('d_details', 'id'));
+    }
+
+    public function d_edit_post(Request $request, $id)
+    {
+        $request->validate([
+            'd_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $d_details = Distributor::where('id', $id)->first();
+
+        if($request->has('d_logo'))
+        {
+            unlink(public_path('distributors/'.$d_details['logo']));
+
+            $imageName = time().'.'.$request->d_logo->extension();  
+            $request->d_logo->move(public_path('distributors'), $imageName);
+        }
+        else
+        {
+            $imageName = $d_details['logo'];
+        }
+
+        $d_details = [
+            'name' => $request->d_name,
+            'email' => $request->d_email,
+            'logo' => $imageName,
+        ];
+        Distributor::where('id', $id)->update($d_details);
+        return back()->with('info', 'Distributor updated!');
+    }
+
+    public function d_delete(Request $request, $id)
+    {
+        Distributor::where('id', $id)->delete();
+        return back()->with('info', 'Distributor is deleted');
+    }
+    
+    public function mp_list()
+    {
+        $mp_list = MediaPartner::get();
+        return view('mp_list', compact('mp_list'));
+    }
+
+    public function mp_create(Request $request)
+    {
+        $request->validate([
+            'mp_logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->mp_logo->extension();  
+        $request->mp_logo->move(public_path('media_partners'), $imageName);
+
+        $mp_details = [
+            'name' => $request->mp_name,
+            'email' => $request->mp_email,
+            'logo' => $imageName,
+        ];
+        MediaPartner::insert($mp_details);
+        return back()->with('info', 'Media Partner created!');
+    }
+
+    public function mp_edit(Request $request, $id)
+    {
+        $mp_details = MediaPartner::where('id', $id)->first();
+        return view('mp_edit', compact('mp_details', 'id'));
+    }
+
+    public function mp_edit_post(Request $request, $id)
+    {
+        $request->validate([
+            'mp_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $mp_details = MediaPartner::where('id', $id)->first();
+
+        if($request->has('mp_logo'))
+        {
+            unlink(public_path('media_partners/'.$mp_details['logo']));
+
+            $imageName = time().'.'.$request->mp_logo->extension();  
+            $request->mp_logo->move(public_path('media_partners'), $imageName);
+        }
+        else
+        {
+            $imageName = $mp_details['logo'];
+        }
+
+        $mp_details = [
+            'name' => $request->mp_name,
+            'email' => $request->mp_email,
+            'logo' => $imageName,
+        ];
+        MediaPartner::where('id', $id)->update($mp_details);
+        return back()->with('info', 'Media Partner updated!');
+    }
+
+    public function mp_delete(Request $request, $id)
+    {
+        MediaPartner::where('id', $id)->delete();
+        return back()->with('info', 'Media Partner is deleted');
+    }
+
 
 }
