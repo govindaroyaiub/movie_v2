@@ -48,8 +48,7 @@
                     <a href="javascript:void(0)" class="closebtn">&times;</a>
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Bioscoop
-                                    pagina</a></li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Bioscopen</a></li>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a>
                             </li>
