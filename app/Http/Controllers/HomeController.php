@@ -36,7 +36,7 @@ class HomeController extends Controller
 
     public function upload(Request $request)
     {
-        
+
         //validate the xls file
         $this->validate($request, array(
         'file'      => 'required'
@@ -49,14 +49,14 @@ class HomeController extends Controller
         {
             $user_id = Auth::user()->id;
         }
-    
+
         if($request->hasFile('file'))
         {
             $check_location_data = Location::first();
             $check_showtime_data = Showtime::first();
             $check_movie_details = Movie::first();
 
-            $file = $request->file('file')->getClientOriginalName(); 
+            $file = $request->file('file')->getClientOriginalName();
             $request->file->move(public_path('/'), $file);
 
             $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
@@ -79,9 +79,9 @@ class HomeController extends Controller
 
             if($worksheet3)
             {
-                $highestRow = $worksheet3->getHighestDataRow(); 
+                $highestRow = $worksheet3->getHighestDataRow();
                 $highestColumn = $worksheet3->getHighestDataColumn();
-                $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn); 
+                $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
                 for ($row = 2; $row <= $highestRow; ++$row) {
                     $movie_title = $worksheet3->getCellByColumnAndRow(2, $row)->getValue();
                     $movie_description_short = $worksheet3->getCellByColumnAndRow(3, $row)->getValue();
@@ -117,12 +117,12 @@ class HomeController extends Controller
                     $fb_pixel = $worksheet3->getCellByColumnAndRow(33, $row)->getValue();
                     $google_pixel = $worksheet3->getCellByColumnAndRow(34, $row)->getValue();
                     $cinema_date = date('Y-m-d',\PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($cinema_date_sheet));
-                    
+
                     if($get_base_url != 'http://bacarau-defilm.nl/')
                     {
                         return back()->with('info', 'The base_url column is not : http://bacarau-defilm.nl/. Please correct it!');
                     }
-                        
+
                     if($movie_title != NULL)
                     {
                         $movie_details = [
@@ -165,7 +165,7 @@ class HomeController extends Controller
                         array_push($full_movie_details, $movie_details);
                     }
                 }
-                //if there is no data 
+                //if there is no data
                 if($check_movie_details == NULL)
                 {
                     Movie::insert($full_movie_details);
@@ -210,7 +210,7 @@ class HomeController extends Controller
                                                 'uploaded_by')
                                                 ->where('base_url', '=', $app_url)
                                                 ->first();
-                    
+
                     if($existing_movie_details != NULL)
                     {
                         Movie::where('base_url', '=', $app_url)->update($full_movie_details[0]);
@@ -223,10 +223,10 @@ class HomeController extends Controller
             }
 
             if($worksheet2)
-            {   
+            {
                 $movie_details = Movie::where('base_url', '=', $app_url)->first();
-                $highestRow = $worksheet2->getHighestDataRow(); 
-                $highestColumn = $worksheet2->getHighestDataColumn(); 
+                $highestRow = $worksheet2->getHighestDataRow();
+                $highestColumn = $worksheet2->getHighestDataColumn();
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
 
                 for ($row = 2; $row <= $highestRow; ++$row) {
@@ -276,8 +276,8 @@ class HomeController extends Controller
 
             if($worksheet1)
             {
-                $highestRow = $worksheet1->getHighestDataRow(); 
-                $highestColumn = $worksheet1->getHighestDataColumn(); 
+                $highestRow = $worksheet1->getHighestDataRow();
+                $highestColumn = $worksheet1->getHighestDataColumn();
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
                 for ($row = 2; $row <= $highestRow; ++$row) {
                     $name = $worksheet1->getCellByColumnAndRow(2, $row)->getValue();
@@ -287,7 +287,7 @@ class HomeController extends Controller
                     $phone = $worksheet1->getCellByColumnAndRow(7, $row)->getValue();
                     $lat = $worksheet1->getCellByColumnAndRow(8, $row)->getValue();
                     $long = $worksheet1->getCellByColumnAndRow(9, $row)->getValue();
-                    
+
                     if($name != NULL)
                     {
                         $location = [
