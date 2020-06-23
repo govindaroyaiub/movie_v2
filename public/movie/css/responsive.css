@@ -114,7 +114,7 @@
 
     .city-map-js {
         position: relative;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-y: auto;
     }
@@ -154,9 +154,10 @@
 
     .map {
         display: none;
-        top: -343px;
+        top: -205px;
         min-height: auto;
         height: 45vh;
+        left: 8px;
     }
 
     .get-ticket-btn {
