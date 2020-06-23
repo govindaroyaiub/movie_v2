@@ -164,4 +164,10 @@ class DataController extends Controller
         return view('test', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating'));
     }
 
+    public function get_google_sheet(Request $request)
+    {
+        $movie_details = Movie::where('id', $request->movie_id)->first();
+        return $movie_details;
+    }
+
 }

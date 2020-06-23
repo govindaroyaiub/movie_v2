@@ -6,6 +6,7 @@ Route::get('/test', 'DataController@test');
 Route::get('/', 'DataController@index');
 Route::get('/en', 'DataController@english_landing');
 Route::get('/api/shows', 'DataController@showsApi');
+Route::post('/get_google_sheet', 'DataController@get_google_sheet')->name('google_sheet.check');
 
 Auth::routes();
 
