@@ -103,6 +103,7 @@ class AdminController extends Controller
         }
         else
         {
+            $user_list = User::where('is_admin', 0)->where('is_delete', 1)->get();
             $movie_list = Movie::join('users', 'users.id', 'movie_details.uploaded_by')
                                 ->select(
                                     'movie_details.id',
@@ -116,7 +117,21 @@ class AdminController extends Controller
 
         }
 
-        return view('movielist', compact('movie_list'));
+        return view('movielist', compact('movie_list', 'user_list'));
+    }
+
+    public function movie_create(Request $request)
+    {
+        $movie_title = $request->movie_title;
+        $movie_details = [
+            'movie_title' => $request->movie_title,
+            'base_url' => $request->base_url,
+            'google_sheet' => $request->google_sheet,
+            'uploaded_by' => $request->client_id,
+            'is_delete' => 0
+        ];
+        Movie::insert($movie_details);
+        return back()->with('success', $movie_title.' has been created!');
     }
 
     public function movie_delete($id)
@@ -142,6 +157,7 @@ class AdminController extends Controller
             'youtube_url' => $request->youtube_url,
             'duration' => $request->duration,
             'base_url' => $request->base_url,
+            'image1' => $request->image1,
             'fb_link' => $request->fb_link,
             'twitter_link' => $request->twitter_link,
             'hashtag' => $request->hashtag,

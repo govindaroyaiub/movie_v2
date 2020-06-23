@@ -71,7 +71,13 @@
                                         <div class="form-group">
                                             <label for="base_url">Base URL</label>
                                             <input type="text" class="form-control" name="base_url" id="base_url"
-                                                value="{{ $movie_details['base_url'] }}" required>
+                                                value="{{ $movie_details['base_url'] }}" required readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="image1">Poster URL</label>
+                                            <input type="text" class="form-control" name="image1" id="image1"
+                                                value="{{ $movie_details['image1'] }}" required>
                                         </div>
 
                                         <div class="form-group">
