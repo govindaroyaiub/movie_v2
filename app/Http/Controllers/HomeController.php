@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_list = User::where('is_admin', 0)->get();
+        $user_list = User::where('is_admin', 0)->where('is_delete', 1)->get();
         return view('home', compact('user_list'));
     }
 
