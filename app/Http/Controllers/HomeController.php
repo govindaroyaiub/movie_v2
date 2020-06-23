@@ -50,7 +50,6 @@ class HomeController extends Controller
         $this->validate($request, array(
         'file'      => 'required'
         ));
-    
         if($request->hasFile('file'))
         {
             $movie_id = $request->movie_id;
@@ -59,7 +58,7 @@ class HomeController extends Controller
             $check_showtime_data = Showtime::first();
             $check_movie_details = Movie::first();
 
-            $file = $request->file('file')->getClientOriginalName(); 
+            $file = $request->file('file')->getClientOriginalName();
             $request->file->move(public_path('/'), $file);
 
             $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
@@ -229,6 +228,7 @@ class HomeController extends Controller
                 $movie_details = Movie::where('id', '=', $movie_id)->first();
                 $highestRow = $worksheet2->getHighestDataRow(); 
                 $highestColumn = $worksheet2->getHighestDataColumn(); 
+            
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
 
                 for ($row = 2; $row <= $highestRow; ++$row) {
@@ -278,8 +278,8 @@ class HomeController extends Controller
 
             if($worksheet1)
             {
-                $highestRow = $worksheet1->getHighestDataRow(); 
-                $highestColumn = $worksheet1->getHighestDataColumn(); 
+                $highestRow = $worksheet1->getHighestDataRow();
+                $highestColumn = $worksheet1->getHighestDataColumn();
                 $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
                 for ($row = 2; $row <= $highestRow; ++$row) {
                     $name = $worksheet1->getCellByColumnAndRow(2, $row)->getValue();
@@ -289,7 +289,7 @@ class HomeController extends Controller
                     $phone = $worksheet1->getCellByColumnAndRow(7, $row)->getValue();
                     $lat = $worksheet1->getCellByColumnAndRow(8, $row)->getValue();
                     $long = $worksheet1->getCellByColumnAndRow(9, $row)->getValue();
-                    
+
                     if($name != NULL)
                     {
                         $location = [

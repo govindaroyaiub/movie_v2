@@ -503,3 +503,27 @@ img {
     font-size: 1.5rem !important;
 }
 
+.footer-social img {
+    width: 65px;
+}
+
+.footer-dist-logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+
+.footer-dist-logos img {
+    width: 300px;
+    margin: 0 1rem;
+    filter: grayscale(100%);
+    transition: all .2s;
+}
+
+.footer-dist-logos img:hover {
+    filter: grayscale(0%);
+}
+
+

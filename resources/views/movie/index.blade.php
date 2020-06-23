@@ -25,8 +25,7 @@
 </head>
 <body>
 
-<a class="trailer-video d-none" href="{{ $youtube_url }}?autoplay=1&mute=1"></a>
-
+{{--<a class="trailer-video d-none" href="{{ $youtube_url }}?autoplay=1&mute=1"></a>--}}
 
 <section id="root" class="mvoie-body">
     <header class="movie-header position-relative text-white py-3">
@@ -111,7 +110,8 @@
 
                         <div class="youtube-trailer">
                             <div class="iframe-container mb-2">
-                                <iframe src="{{ $youtube_url }}" class="iframe-video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                <iframe src="{{ $youtube_url }}" class="iframe-video"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
                             </div>
                         </div>
@@ -128,7 +128,8 @@
             <div class="row mb-3">
                 <div class="col-md-12">
                     <div class="iframe-container">
-                        <iframe src="{{ $youtube_url }}" class="iframe-video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        <iframe src="{{ $youtube_url }}" class="iframe-video"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
                     </div>
                 </div>
@@ -215,17 +216,26 @@
                     <div class="col-md-6 offset-md-3">
                         <ul class="footer-social">
                             <li class="mr-2"><a target="_blank" href="{{ $movie_details->fb_link }}">
-                                    <img width="35" src="{{ asset('images/facebook.svg') }}" alt="">
+                                    <img src="{{ asset('images/facebook.svg') }}" alt="">
                                 </a>
                             <li><a target="_blank" href="{{ $movie_details->twitter_link }}">
-                                    <img width="35" src="{{ asset('images/twitter.svg') }}" alt="">
+                                    <img src="{{ asset('images/twitter.svg') }}" alt="">
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="footer-dist-logos">
+                    <img src="{{ asset('images/distributor-cherry-pickers.png') }}" alt="">
+                    <img src="{{ asset('images/p9.png') }}" alt="">
+                    <img src="{{ asset('images/partner-filminc.png') }}" alt="">
+                </div>
+            </div>
         </footer>
+    </div>
 
 </section>
 

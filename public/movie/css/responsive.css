@@ -171,6 +171,15 @@
         width: 28px;
     }
 
+    .footer-social img {
+        width: 25px;
+    }
+
+
+    .footer-dist-logos img {
+        width: 80px;
+    }
+
 }
 
 /*Small devices (landscape phones, 576px and up)*/
