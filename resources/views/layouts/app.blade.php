@@ -210,7 +210,7 @@
             success: function(result)
             {
               var google_sheet = result.google_sheet;
-              document.getElementById("google_sheet_ajax").href = "http://www.cnn.com/";
+              document.getElementById("google_sheet_ajax").href = result.google_sheet;
 
             }
           })

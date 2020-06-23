@@ -21,9 +21,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        <label>&#8226; Please use the Google Sheet from <a href="" id="google_sheet_ajax" target="_blank">here.</a></label>
-                        <br>
-                        <label>&#8226; Download the sheet as Xlsx format and upload.</label>
+                        <label>&#8226; Please use the Google Sheet from <a href="" id="google_sheet_ajax" target="_blank">here.</a></label><br>
+                        <label>&#8226; Download the sheet as Xlsx format and upload.</label><br>
+                        <label>&#8226; Please do not delete the previous data from the sheet!!.</label><br>
                         <hr>
                         <div class="form-group">
                             <input type="file" name="file" required>
