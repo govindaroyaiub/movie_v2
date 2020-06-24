@@ -50,10 +50,11 @@
                     <a href="javascript:void(0)" class="closebtn">&times;</a>
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Bioscopen</a></li>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Bioscopen</a>
                             </li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a></li>
+                            <li><a href="https://picl.nl/films/bacurau/" target="_blank" class="menu-link"><img class="menu-logo" src="{{ asset('/images/picl.png') }}" alt=""></a></li>
                             <li class="hastag">{{ $movie_details->hashtag }}</li>
                         </ul>
                     </nav>
@@ -230,9 +231,12 @@
 
             <div class="container">
                 <div class="footer-dist-logos">
-                    <a href="{{ $d_details['email'] }}" target="_blank"><img src="/distributors/{{ $d_details['logo'] }}" alt=""></a>
-                    <a href="https://www.planetnine.com/" target="_blank"><img src="{{ asset('images/p9.png') }}" alt=""></a>
-                    <a href="{{ $mp_details['email'] }}" target="_blank"><img src="/media_partners/{{ $mp_details['logo'] }}" alt=""></a>
+                    <a href="{{ $d_details['email'] }}" target="_blank"><img
+                            src="/distributors/{{ $d_details['logo'] }}" alt=""></a>
+                    <a href="https://www.planetnine.com/" target="_blank"><img src="{{ asset('images/p9.png') }}"
+                                                                               alt=""></a>
+                    <a href="{{ $mp_details['email'] }}" target="_blank"><img
+                            src="/media_partners/{{ $mp_details['logo'] }}" alt=""></a>
                 </div>
             </div>
         </footer>

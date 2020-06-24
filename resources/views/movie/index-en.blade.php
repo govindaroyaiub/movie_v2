@@ -38,8 +38,8 @@
                         <ul>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('bp', this)" id="defaultOpen">Cinemas</a></li>
                             <li><a href="#" class="menu-link tablink" onclick="openPage('vdo', this)">Videos</a></li>
-                            <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a>
-                            </li>
+                            <li><a href="#" class="menu-link tablink" onclick="openPage('sy', this)">Synopsis</a></li>
+                            <li><a href="https://picl.nl/films/bacurau/" target="_blank" class="menu-link"><img class="menu-logo" src="{{ asset('/images/picl.png') }}" alt=""></a></li>
                             <li class="hastag">{{ $movie_details->hashtag }}</li>
                         </ul>
                     </nav>

@@ -112,6 +112,7 @@ img {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .movie-menu a {
@@ -526,4 +527,8 @@ img {
     filter: grayscale(0%);
 }
 
+.menu-logo {
+    width: 45px;
+    margin-right: 1rem;
+}
 
