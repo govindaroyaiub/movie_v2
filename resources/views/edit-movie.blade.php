@@ -115,8 +115,9 @@
                                                 <label for="d_id">Distributor</label>
                                                 <select class="form-control select2" id="d_id" name="d_id" style="width: 100%;" required>
                                                     <option value="">Select Distributor</option>
+                                                    <option value="0" @if($movie_details['d_id'] == 0) selected @endif>None</option>
                                                     @foreach($d_list as $row)
-                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['d_id']) selected @endif)>{{$row->name}}</option>
+                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['d_id']) selected @endif>{{$row->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -124,8 +125,9 @@
                                                 <label for="mp_id">Media Partner</label>
                                                 <select class="form-control select2" id="mp_id" name="mp_id" style="width: 100%;" required>
                                                     <option value="">Select Movie Partner</option>
+                                                    <option value="0" @if($movie_details['mp_id'] == 0) selected @endif>None</option>
                                                     @foreach($mp_list as $row)
-                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['mp_id']) selected @endif)>{{$row->name}}</option>
+                                                    <option value="{{$row->id}}" @if($row->id == $movie_details['mp_id']) selected @endif>{{$row->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
