@@ -16,7 +16,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Email</th>
+                                    <th>Website</th>
                                     <th>Logo</th>
                                     <th>Action</th>
                                 </tr>
@@ -64,11 +64,14 @@
                         <input type="text" class="form-control" name="d_name" id="d_name" required>
                     </div>
                     <div class="form-group">
-                        <label for="d_email">Email</label>
+                        <label for="d_email">Website</label>
                         <input type="text" class="form-control" name="d_email" id="d_email" required>
                     </div>
                     <div class="form-group">
-                        <input type="file" name="d_logo" required>
+                        <input type="file" name="d_logo" onchange="read_d_logo(this);" required>
+                    </div>
+                    <div class="form-group">
+                        <img src="" id="r_d_logo" style="display: none; margin: 0 auto; width: 60%;">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="form-control-user btn btn-primary">Create</button>

@@ -18,7 +18,7 @@
                                     required>
                             </div>
                             <div class="form-group">
-                                <label for="mp_email">Email</label>
+                                <label for="mp_email">Website</label>
                                 <input type="text" class="form-control" name="mp_email" id="mp_email" value="{{ $mp_details->email }}"
                                     required>
                             </div>

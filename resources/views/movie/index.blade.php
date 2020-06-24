@@ -230,9 +230,9 @@
 
             <div class="container">
                 <div class="footer-dist-logos">
-                    <img src="/distributors/{{ $d_details['logo'] }}" alt="">
-                    <img src="{{ asset('images/p9.png') }}" alt="">
-                    <img src="/media_partners/{{ $mp_details['logo'] }}" alt="">
+                    <a href="{{ $d_details['email'] }}" target="_blank"><img src="/distributors/{{ $d_details['logo'] }}" alt=""></a>
+                    <a href="https://www.planetnine.com/" target="_blank"><img src="{{ asset('images/p9.png') }}" alt=""></a>
+                    <a href="{{ $mp_details['email'] }}" target="_blank"><img src="/media_partners/{{ $mp_details['logo'] }}" alt=""></a>
                 </div>
             </div>
         </footer>

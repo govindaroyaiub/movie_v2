@@ -47,12 +47,12 @@ class DataController extends Controller
                             ->get();
 
             $d_details = Movie::join('distributors', 'distributors.id', 'movie_details.d_id')
-                            ->select('distributors.logo')
+                            ->select('distributors.logo', 'distributors.email')
                             ->where('movie_details.base_url', '=', $app_url)
                             ->first();
 
             $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.mp_id')
-                            ->select('media_partners.logo')
+                            ->select('media_partners.logo', 'media_partners.email')
                             ->where('movie_details.base_url', '=', $app_url)
                             ->first();
                         
@@ -100,12 +100,12 @@ class DataController extends Controller
 
 
             $d_details = Movie::join('distributors', 'distributors.id', 'movie_details.d_id')
-                                ->select('distributors.logo')
+                                ->select('distributors.logo', 'distributors.email')
                                 ->where('movie_details.base_url', '=', $app_url)
                                 ->first();
     
             $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.mp_id')
-                                ->select('media_partners.logo')
+                                ->select('media_partners.logo', 'media_partners.email')
                                 ->where('movie_details.base_url', '=', $app_url)
                                 ->first();
 
