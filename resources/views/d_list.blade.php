@@ -21,9 +21,10 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            @foreach($d_list as $row)
+                            
                             <tbody style="text-align:center;">
                                 <?php $i = 1; ?>
+                                @foreach($d_list as $row)
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$row->name}}</td>
@@ -36,8 +37,8 @@
                                         <a href="/partnerlist/distributor/delete/{{$row->id}}"><button class="btn btn-danger text-white custom">Delete</button></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
-                            @endforeach
                         </table>
                     </div>
                 </div>
