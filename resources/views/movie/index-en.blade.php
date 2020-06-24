@@ -8,6 +8,8 @@
     <link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css'/>
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    {!! $movie_details->fb_pixel !!}
+    {!! $movie_details->google_pixel !!}
 </head>
 <body>
 
