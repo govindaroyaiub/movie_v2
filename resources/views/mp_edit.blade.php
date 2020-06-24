@@ -23,13 +23,13 @@
                                     required>
                             </div>
                             <div class="form-group">
-                                <img src="/media_partners/{{$mp_details->logo}}" style="display: block; margin: 0 auto; width: 60%;">
+                                <img src="/media_partners/{{$mp_details->logo}}" id="mp_logo" style="display: block; margin: 0 auto; width: 60%;">
                                 <br>
-                                <input type="file" name="mp_logo">
+                                <input type="file" name="mp_logo" onchange="change_mp_logo(this);">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="form-control-user btn btn-primary">Update</button>
-                                <a href="/partnerlist/media_partner"><button type="button" class="btn btn-secondary">Back</button></a>
+                                <a href="/partnerlist/media_partners"><button type="button" class="btn btn-secondary">Back</button></a>
                             </div>
                         </form>
                 </div>

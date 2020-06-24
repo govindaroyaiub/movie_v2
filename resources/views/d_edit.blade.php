@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <img src="/distributors/{{$d_details->logo}}" id="d_logo" style="display: block; margin: 0 auto; width: 60%;">
                                 <br>
-                                <input type="file" name="d_logo" onchange="readURL(this);">
+                                <input type="file" name="d_logo" onchange="change_d_logo(this);">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="form-control-user btn btn-primary">Update</button>

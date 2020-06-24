@@ -248,12 +248,24 @@
     });
 </script>
 <script>
-function readURL(input) {
+function change_d_logo(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
             $('#d_logo')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function change_mp_logo(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#mp_logo')
                 .attr('src', e.target.result);
         };
 
