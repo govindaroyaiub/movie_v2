@@ -103,9 +103,8 @@ class DataController extends Controller
                                 ->select('distributors.logo')
                                 ->where('movie_details.base_url', '=', $app_url)
                                 ->first();
-
-
-            $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.d_id')
+    
+            $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.mp_id')
                                 ->select('media_partners.logo')
                                 ->where('movie_details.base_url', '=', $app_url)
                                 ->first();
