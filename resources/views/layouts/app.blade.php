@@ -11,6 +11,9 @@
     .custom {
         width: 72px !important;
     }
+    #infos{
+        display:none;
+    }
     </style>
 </head>
 <body>
@@ -241,7 +244,15 @@
             success: function(result)
             {
               var google_sheet = result.google_sheet;
-              document.getElementById("google_sheet_ajax").href = result.google_sheet;
+              if(google_sheet)
+              {
+                document.getElementById("infos").style.display = "block";
+                document.getElementById("google_sheet_ajax").href = result.google_sheet;
+              }
+              else
+              {
+                document.getElementById("infos").style.display = "none";
+              }
             }
           })
       });

@@ -27,7 +27,7 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td>{{$row->email}}</td>
+                                    <td><a href="{{$row->email}}" target="_blank">{{$row->email}}</a></td>
                                     <td>
                                         <img src="/media_partners/{{$row->logo}}" width="150px">
                                     </td>
