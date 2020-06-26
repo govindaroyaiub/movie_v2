@@ -55,7 +55,7 @@ class DataController extends Controller
                             ->select('media_partners.logo', 'media_partners.email')
                             ->where('movie_details.base_url', '=', $app_url)
                             ->first();
-                        
+
             return view('movie.index', compact('movie_details', 'youtube_url', 'poster', 'showtime', 'city', 'rating', 'd_details', 'mp_details'));
 
 //            dd($movie_details);
@@ -103,7 +103,7 @@ class DataController extends Controller
                                 ->select('distributors.logo', 'distributors.email')
                                 ->where('movie_details.base_url', '=', $app_url)
                                 ->first();
-    
+
             $mp_details = Movie::join('media_partners', 'media_partners.id', 'movie_details.mp_id')
                                 ->select('media_partners.logo', 'media_partners.email')
                                 ->where('movie_details.base_url', '=', $app_url)

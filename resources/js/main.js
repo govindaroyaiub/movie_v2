@@ -110,7 +110,6 @@ if (location.pathname === '/en') {
     endpint = `${location.href}api/shows`;
 }
 
-
 axios.get(endpint)
     .then(res => showtime.push(...res.data))
     .then(() => {
@@ -211,7 +210,10 @@ function buildLocationList(data) {
                                   </div>
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
-                                    <p class="m-0 ml-3">${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : moment(m.date).locale('en').format("LL")} ${moment(m.time, "HH:mm").format("HH:mm")}</p>
+                                    <p class="m-0 ml-3 d-flex">
+                                        ${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : moment(m.date).locale('en').format("LL")}
+                                        &nbsp; <span>${parseInt(m.time) === 0 ? '' : moment(m.time, "HH:mm").format("HH:mm")}</span>
+                                     </p>
                                   </div>
 
                               </div>
@@ -303,7 +305,9 @@ function buildLocationList(data) {
                                   </div>
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
-                                    <p class="m-0 ml-3">${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : moment(m.date).locale('en').format("LL")} ${moment(m.time, "HH:mm").format("HH:mm")}</p>
+                                    <p class="m-0 ml-3">${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : moment(m.date).locale('en').format("LL")}
+                                       &nbsp; <span>${parseInt(m.time) === 0 ? '' : moment(m.time, "HH:mm").format("HH:mm")}</span>
+                                    </p>
                                   </div>
 
                               </div>
