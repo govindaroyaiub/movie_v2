@@ -238,7 +238,15 @@ class HomeController extends Controller
                     $url = $worksheet2->getCellByColumnAndRow(5, $row)->getValue();
                     $movie_id = $movie_details['id'];
                     $date = date('Y-m-d',\PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($date_sheet));
-                    $time = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($time_sheet)->format('H:i');
+                    if($time_sheet != NULL)
+                    {
+                        $time = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($time_sheet)->format('H:i');
+                    }
+                    else
+                    {
+                        $time = 0;
+                    }
+                    
                     $cinema_id = explode(" ", $cinema_details);
 
                     if($cinema_details != NULL)
