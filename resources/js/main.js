@@ -211,7 +211,7 @@ function buildLocationList(data) {
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
                                     <p class="m-0 ml-3">
-                                        ${location.pathname === '/' ? 'Vanaf ' + moment(m.date).locale('nl').format("LL") : 'From ' + moment(m.date).locale('en').format("LL")}
+                                        ${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : + moment(m.date).locale('en').format("LL")}
                                     </p>
                                   </div>
 
@@ -305,7 +305,7 @@ function buildLocationList(data) {
                                   <div class="d-flex justify-content-between mt-2 ml-md-5 text-white">
                                     <p class="m-0">${m.address}, ${m.city}</p>
                                     <p class="m-0 ml-3">
-                                    ${location.pathname === '/' ? 'Vanaf ' + moment(m.date).locale('nl').format("LL") : 'From ' + moment(m.date).locale('en').format("LL")}
+                                    ${location.pathname === '/' ? moment(m.date).locale('nl').format("LL") : moment(m.date).locale('en').format("LL")}
                                     </p>
                                   </div>
 
